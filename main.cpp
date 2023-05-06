@@ -8,8 +8,8 @@ public:
         return str.append("(" + to_string(num) + ")");
     }
 
-    [[maybe_unused]] static vector <string> getFolderNames(vector <string> &names) {
-        vector <string> res;
+    [[maybe_unused]] static vector<string> getFolderNames(vector<string> &names) {
+        vector<string> res;
         unordered_map<string, int> mp;
 
         for (auto &name: names) {
@@ -32,33 +32,57 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution {
+class [[maybe_unused]] Solution1642 {
 public:
     [[maybe_unused]] static int furthestBuilding(vector<int> &heights, int bricks, int ladders) {
         unsigned int n = heights.size();
-        for (int i = 1; i < n - 1; ++i) {
-            if (heights[i] > heights[i + 1]) {
-                continue;
-            } else {
-                int gap = heights[i + 1] - heights[i];
-                if (gap <= bricks) {
-                    bricks -= gap;
-                    continue;
-                } else if (ladders > 0) {
-                    ladders--;
-                    continue;
+        priority_queue<int, vector<int>, greater<>> pq;
+
+        for (int i = 1; i < n; ++i) {
+            int gap = heights[i] - heights[i - 1];
+            if (gap > 0) {
+                pq.push(gap);
+                int temp = 0;
+                if (pq.size() > ladders) {
+                    temp = pq.top();
+                    pq.pop();
+                }
+                if (temp > bricks) {
+                    return i - 1;
                 } else {
-                    return i;
+                    bricks -= temp;
                 }
             }
         }
 
-       gi return int(n);
+        return int(n) - 1;
+    }
+};
+
+class [[maybe_unused]] Solution1010 {
+public:
+    [[maybe_unused]] static int numPairsDivisibleBy60(vector<int> &time) {
+        long int res = 0;
+        unordered_map<int, int> mp;
+
+        for (int &t: time) {
+            mp[t % 60]++;
+        }
+
+        // [1, 29]
+        for (int i = 1; i < 30; ++i) {
+            res += mp[i] * mp[60 - i];
+        }
+
+        // [30, 30]
+        res += (long) mp[30] * (mp[30] - 1) / 2;
+        // [0, 0]
+        res += (long) mp[0] * (mp[0] - 1) / 2;
+
+        return (int)res;
     }
 };
 
 int main() {
-    vector<int> test = {14,3,9,13};
-    cout << Solution::furthestBuilding(test, 5, 1);
     return 0;
 }
