@@ -75,7 +75,7 @@ public:
 
 class [[maybe_unused]] Solution1010 {
 public:
-    [[maybe_unused]] static int numPairsDivisibleBy60(vector<int> &time) {
+    [[maybe_unused]] static int numPairsDivisibleby60(vector<int> &time) {
         long int res = 0;
         unordered_map<int, int> mp;
 
@@ -154,6 +154,89 @@ public:
         }
 
         return 0;
+    }
+};
+
+class [[maybe_unused]] Solution1263 {
+public:
+    [[maybe_unused]] static int minPushBox(vector<vector<char>> &grid) {
+        int m = int(grid.size());
+        int n = int(grid[0].size());
+        int sx = 0, sy = 0;
+        int bx = 0, by = 0;
+        int tx = 0, ty = 0;
+
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 'S') {
+                    sx = i, sy = j;
+                    continue;
+                }
+                if (grid[i][j] == 'B') {
+                    bx = i, by = j;
+                }
+                if (grid[i][j] == 'T') {
+                    tx = i, ty = j;
+                }
+            }
+        }
+
+        auto f = [&](int &i, int &j) -> int {
+            return i * n + j;
+        };
+        auto check = [&](int &i, int &j) -> bool {
+            return i >= 0 && i < m && j >= 0 && j < n && grid[i][j] != '#';
+        };
+
+        deque<tuple<int, int, int>> q;
+        q.emplace_back(f(sx, sy), f(bx, by), 0);
+        vector<vector<bool>> visited(m * n, vector<bool>(m * n, false));
+        visited[f(sx, sy)][f(bx, by)] = true;
+        vector<vector<int>> dirs = {{0,  1},
+                                    {0,  -1},
+                                    {1,  0},
+                                    {-1, 0}};
+
+        while (!q.empty()) {
+            auto [s, b, d] = q.front();
+            q.pop_front();
+
+            sx = s / n;
+            sy = s % n;
+            bx = b / n;
+            by = b % n;
+
+            if (bx == tx && ty == by) {
+                return d;
+            }
+
+            for (int i = 0; i < 4; ++i) {
+                int dx = dirs[i][0];
+                int dy = dirs[i][1];
+
+                int ssx = sx + dx;
+                int ssy = sy + dy;
+                if (!check(ssx, ssy)) {
+                    continue;
+                }
+
+                if (ssx == bx && ssy == by) {
+                    int bbx = bx + dx;
+                    int bby = by + dy;
+                    if (!check(bbx, bby) || visited[f(ssx, ssy)][f(bbx, bby)]) {
+                        continue;
+                    }
+
+                    visited[f(ssx, ssy)][f(bbx, bby)] = true;
+                    q.emplace_back(f(ssx, ssy), f(bbx, bby), d + 1);
+                } else if (!visited[f(ssx, ssy)][f(bx, by)]) {
+                    visited[f(ssx, ssy)][f(bx, by)] = true;
+                    q.emplace_front(f(ssx, ssy), f(bx, by), d);
+                }
+            }
+        }
+
+        return -1;
     }
 };
 
