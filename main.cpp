@@ -15,6 +15,16 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
+struct ListNode {
+    [[maybe_unused]] int val;
+    ListNode *next;
+
+    ListNode() : val(0), next(nullptr) {}
+
+    [[maybe_unused]] explicit ListNode(int x) : val(x), next(nullptr) {}
+
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
 class [[maybe_unused]] Solution1487 {
 public:
@@ -238,17 +248,6 @@ public:
 
         return -1;
     }
-};
-
-struct ListNode {
-    [[maybe_unused]] int val;
-    ListNode *next;
-
-    ListNode() : val(0), next(nullptr) {}
-
-    [[maybe_unused]] explicit ListNode(int x) : val(x), next(nullptr) {}
-
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
 class [[maybe_unused]] Solution92 {
