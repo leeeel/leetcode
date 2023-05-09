@@ -240,6 +240,39 @@ public:
     }
 };
 
+struct ListNode {
+    [[maybe_unused]] int val;
+    ListNode *next;
+
+    ListNode() : val(0), next(nullptr) {}
+
+    [[maybe_unused]] explicit ListNode(int x) : val(x), next(nullptr) {}
+
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+class [[maybe_unused]] Solution92 {
+public:
+    [[maybe_unused]] static ListNode *reverseBetween(ListNode *head, int left, int right) {
+        auto *dummy = new ListNode(0, head);
+        auto *pre = dummy;
+
+        for (int i = 0; i < left - 1; ++i) {
+            pre = pre->next;
+        }
+        auto cur = pre->next;
+
+        for (int j = 0; j < right - left; ++j) {
+            auto temp = cur->next;
+            cur->next = temp->next;
+            temp->next = pre->next;
+            pre->next = temp;
+        }
+
+        return dummy->next;
+    }
+};
+
 int main() {
     return 0;
 }
