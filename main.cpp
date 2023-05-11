@@ -272,6 +272,48 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution1015 {
+public:
+    [[maybe_unused]] static int smallestRepunitDivByK(int k) {
+        int res = 1;
+        int num = 1;
+
+        for (int i = 0; i < k; ++i, ++res) {
+            if (num % k == 0) {
+                return res;
+            }
+            num = (num * 10 + 1) % k;
+        }
+
+        return -1;
+    }
+};
+
+class [[maybe_unused]] Solution1016 {
+public:
+    [[maybe_unused]] static bool queryString(string s, int n) {
+        unsigned int m = s.size();
+        unordered_set<int> set;
+
+        for (int i = 0; i < m; ++i) {
+            if (s[i] == '0') {
+                continue;
+            }
+            int num = 1;
+
+            for (int j = i + 1; num <= n; ++j) {
+                set.insert(num);
+                if (j== m) {
+                    break;
+                }
+                num = (num << 1) | (s[j] - '0');
+            }
+        }
+
+        return set.size() == n;
+    }
+};
+
 int main() {
     return 0;
 }
