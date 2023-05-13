@@ -303,7 +303,7 @@ public:
 
             for (int j = i + 1; num <= n; ++j) {
                 set.insert(num);
-                if (j== m) {
+                if (j == m) {
                     break;
                 }
                 num = (num << 1) | (s[j] - '0');
@@ -311,6 +311,41 @@ public:
         }
 
         return set.size() == n;
+    }
+};
+
+class [[maybe_unused]] Solution224 {
+public:
+    [[maybe_unused]] static int calculate(string s) {
+        int res = 0, op = 1;
+        stack<int> stk;
+        stk.push(op);
+        unsigned int n = s.size();
+
+        for (int i = 0; i < n; i++) {
+            char ch = s[i];
+            if (ch == ' ') {
+                continue;
+            } else if (ch == '(') {
+                stk.push(op);
+            } else if (ch == ')') {
+                stk.pop();
+            } else if (ch == '-') {
+                op = -stk.top();
+            } else if (ch == '+') {
+                op = stk.top();
+            } else {
+                int num = 0;
+                while (i < n && s[i] >= '0' && s[i] <= '9') {
+                    num = num * 10 + s[i] - '0';
+                    i++;
+                }
+                res += op * num;
+                i--;
+            }
+        }
+
+        return res;
     }
 };
 
