@@ -349,6 +349,99 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution1096 {
+public:
+    [[maybe_unused]] static vector<string> braceExpansionII(string expression) {
+        stack<char> op; // '{', '+', '*'
+        stack<set<string>> st;
+        unsigned int n = expression.size();
+
+        auto cal = [&]() {
+            auto strSet1 = st.top();
+            st.pop();
+            auto &strSet2 = st.top();
+            st.pop();
+
+            auto opr = op.top();
+            if (opr == '+') {
+                strSet1.merge(strSet2);
+                st.emplace(strSet1);
+            } else if (opr == '*') {
+                set<string> temp;
+                for (auto &str2: strSet2) {
+                    for (auto &str1: strSet1) {
+                        temp.insert(str2 + str1);
+                    }
+                }
+
+                st.emplace(temp);
+            }
+            op.pop();
+        };
+
+        for (int i = 0; i < n; ++i) {
+            switch (expression[i]) {
+                case '{':
+                    if (i > 0 && (expression[i - 1] == '}' || isalpha(expression[i - 1]))) {
+                        op.emplace('*');
+                    }
+                    op.emplace(expression[i]);
+                    continue;
+                case '}':
+                    while (!op.empty() && op.top() != '{') {
+                        cal();
+                    }
+                    op.pop();
+                    continue;
+                case ',':
+                    while (!op.empty() && op.top() == '*') {
+                        cal();
+                    }
+                    op.emplace('+');
+                    continue;
+                default:
+                    if (i > 0 && (expression[i - 1] == '}' || isalpha(expression[i - 1]))) {
+                        op.emplace('*');
+                    }
+                    st.push({string(1, expression[i])});
+            }
+        }
+
+        while (!op.empty()) {
+            cal();
+        }
+
+        return {st.top().begin(), st.top().end()};
+    }
+};
+
+class [[maybe_unused]] Solution264 {
+public:
+    [[maybe_unused]] static int nthUglyNumber(int n) {
+        vector<int> dp(n + 1, 1);
+        int p2 = 1, p3 = 1, p5 = 1;
+        int num1, num2, num3;
+
+        for (int i = 2; i <= n; ++i) {
+            num1 = dp[p2] * 2;
+            num2 = dp[p3] * 3;
+            num3 = dp[p5] * 5;
+            dp[i] = min(num1, min(num2, num3));
+            if (num1 == dp[i]) {
+                p2++;
+            }
+            if (num2 == dp[i]) {
+                p3++;
+            }
+            if (num3 == dp[i]) {
+                p5++;
+            }
+        }
+
+        return dp[n];
+    }
+};
+
 int main() {
     return 0;
 }
