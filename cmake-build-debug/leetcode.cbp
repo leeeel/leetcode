@@ -80,7 +80,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/bytedance/Documents/leetcode/main.cpp">
+		<Unit filename="/Users/bytedance/Documents/leetcode/structs.h">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/Users/bytedance/Documents/leetcode/volume1.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/Users/bytedance/Documents/leetcode/volume2.cpp">
+			<Option target="leetcode"/>
+		</Unit>
+		<Unit filename="/Users/bytedance/Documents/leetcode/volume3.cpp">
 			<Option target="leetcode"/>
 		</Unit>
 		<Unit filename="/Users/bytedance/Documents/leetcode/CMakeLists.txt">

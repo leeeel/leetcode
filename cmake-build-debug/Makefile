@@ -129,29 +129,77 @@ leetcode/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/build
 .PHONY : leetcode/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+volume1.o: volume1.cpp.o
+.PHONY : volume1.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/main.cpp.o
-.PHONY : main.cpp.o
+volume1.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/volume1.cpp.o
+.PHONY : volume1.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+volume1.i: volume1.cpp.i
+.PHONY : volume1.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/main.cpp.i
-.PHONY : main.cpp.i
+volume1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/volume1.cpp.i
+.PHONY : volume1.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+volume1.s: volume1.cpp.s
+.PHONY : volume1.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/main.cpp.s
-.PHONY : main.cpp.s
+volume1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/volume1.cpp.s
+.PHONY : volume1.cpp.s
+
+volume2.o: volume2.cpp.o
+.PHONY : volume2.o
+
+# target to build an object file
+volume2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/volume2.cpp.o
+.PHONY : volume2.cpp.o
+
+volume2.i: volume2.cpp.i
+.PHONY : volume2.i
+
+# target to preprocess a source file
+volume2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/volume2.cpp.i
+.PHONY : volume2.cpp.i
+
+volume2.s: volume2.cpp.s
+.PHONY : volume2.s
+
+# target to generate assembly for a file
+volume2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/volume2.cpp.s
+.PHONY : volume2.cpp.s
+
+volume3.o: volume3.cpp.o
+.PHONY : volume3.o
+
+# target to build an object file
+volume3.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/volume3.cpp.o
+.PHONY : volume3.cpp.o
+
+volume3.i: volume3.cpp.i
+.PHONY : volume3.i
+
+# target to preprocess a source file
+volume3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/volume3.cpp.i
+.PHONY : volume3.cpp.i
+
+volume3.s: volume3.cpp.s
+.PHONY : volume3.s
+
+# target to generate assembly for a file
+volume3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leetcode.dir/build.make CMakeFiles/leetcode.dir/volume3.cpp.s
+.PHONY : volume3.cpp.s
 
 # Help Target
 help:
@@ -162,9 +210,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... leetcode"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... volume1.o"
+	@echo "... volume1.i"
+	@echo "... volume1.s"
+	@echo "... volume2.o"
+	@echo "... volume2.i"
+	@echo "... volume2.s"
+	@echo "... volume3.o"
+	@echo "... volume3.i"
+	@echo "... volume3.s"
 .PHONY : help
 
 
