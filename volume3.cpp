@@ -138,7 +138,5 @@ public:
 };
 
 [[maybe_unused]] int main() {
-    vector<int> test = {6, 5, 4, 3, 2, 1};
-    cout << Solution1335_1::minDifficulty(test, 2);
     return 0;
 }
