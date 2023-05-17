@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/bytedance/Desktop/leetcode/main.cpp" "CMakeFiles/leetcode.dir/main.cpp.o" "gcc" "CMakeFiles/leetcode.dir/main.cpp.o.d"
+  "/Users/bytedance/Documents/leetcode/main.cpp" "CMakeFiles/leetcode.dir/main.cpp.o" "gcc" "CMakeFiles/leetcode.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links.
