@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/leetcode.dir/volume1.cpp.o CMakeFiles/leetcode.dir/volume2.cpp.o CMakeFiles/leetcode.dir/volume3.cpp.o -o leetcode 
