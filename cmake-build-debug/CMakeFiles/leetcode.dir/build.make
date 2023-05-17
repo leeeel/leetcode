@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Users/bytedance/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/CLion.app/Contents/bin/cmake/mac/bin/cmake"
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = "/Users/bytedance/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E rm -f
+RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/bytedance/Documents/leetcode
+CMAKE_SOURCE_DIR = /Users/bytedance/Desktop/leetcode
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/bytedance/Documents/leetcode/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/bytedance/Desktop/leetcode/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/leetcode.dir/depend.make
@@ -70,46 +70,46 @@ include CMakeFiles/leetcode.dir/progress.make
 include CMakeFiles/leetcode.dir/flags.make
 
 CMakeFiles/leetcode.dir/volume1.cpp.o: CMakeFiles/leetcode.dir/flags.make
-CMakeFiles/leetcode.dir/volume1.cpp.o: /Users/bytedance/Documents/leetcode/volume1.cpp
+CMakeFiles/leetcode.dir/volume1.cpp.o: /Users/bytedance/Desktop/leetcode/volume1.cpp
 CMakeFiles/leetcode.dir/volume1.cpp.o: CMakeFiles/leetcode.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bytedance/Documents/leetcode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/leetcode.dir/volume1.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/leetcode.dir/volume1.cpp.o -MF CMakeFiles/leetcode.dir/volume1.cpp.o.d -o CMakeFiles/leetcode.dir/volume1.cpp.o -c /Users/bytedance/Documents/leetcode/volume1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bytedance/Desktop/leetcode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/leetcode.dir/volume1.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/leetcode.dir/volume1.cpp.o -MF CMakeFiles/leetcode.dir/volume1.cpp.o.d -o CMakeFiles/leetcode.dir/volume1.cpp.o -c /Users/bytedance/Desktop/leetcode/volume1.cpp
 
 CMakeFiles/leetcode.dir/volume1.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/leetcode.dir/volume1.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/bytedance/Documents/leetcode/volume1.cpp > CMakeFiles/leetcode.dir/volume1.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/bytedance/Desktop/leetcode/volume1.cpp > CMakeFiles/leetcode.dir/volume1.cpp.i
 
 CMakeFiles/leetcode.dir/volume1.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/leetcode.dir/volume1.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/bytedance/Documents/leetcode/volume1.cpp -o CMakeFiles/leetcode.dir/volume1.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/bytedance/Desktop/leetcode/volume1.cpp -o CMakeFiles/leetcode.dir/volume1.cpp.s
 
 CMakeFiles/leetcode.dir/volume2.cpp.o: CMakeFiles/leetcode.dir/flags.make
-CMakeFiles/leetcode.dir/volume2.cpp.o: /Users/bytedance/Documents/leetcode/volume2.cpp
+CMakeFiles/leetcode.dir/volume2.cpp.o: /Users/bytedance/Desktop/leetcode/volume2.cpp
 CMakeFiles/leetcode.dir/volume2.cpp.o: CMakeFiles/leetcode.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bytedance/Documents/leetcode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/leetcode.dir/volume2.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/leetcode.dir/volume2.cpp.o -MF CMakeFiles/leetcode.dir/volume2.cpp.o.d -o CMakeFiles/leetcode.dir/volume2.cpp.o -c /Users/bytedance/Documents/leetcode/volume2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bytedance/Desktop/leetcode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/leetcode.dir/volume2.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/leetcode.dir/volume2.cpp.o -MF CMakeFiles/leetcode.dir/volume2.cpp.o.d -o CMakeFiles/leetcode.dir/volume2.cpp.o -c /Users/bytedance/Desktop/leetcode/volume2.cpp
 
 CMakeFiles/leetcode.dir/volume2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/leetcode.dir/volume2.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/bytedance/Documents/leetcode/volume2.cpp > CMakeFiles/leetcode.dir/volume2.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/bytedance/Desktop/leetcode/volume2.cpp > CMakeFiles/leetcode.dir/volume2.cpp.i
 
 CMakeFiles/leetcode.dir/volume2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/leetcode.dir/volume2.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/bytedance/Documents/leetcode/volume2.cpp -o CMakeFiles/leetcode.dir/volume2.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/bytedance/Desktop/leetcode/volume2.cpp -o CMakeFiles/leetcode.dir/volume2.cpp.s
 
 CMakeFiles/leetcode.dir/volume3.cpp.o: CMakeFiles/leetcode.dir/flags.make
-CMakeFiles/leetcode.dir/volume3.cpp.o: /Users/bytedance/Documents/leetcode/volume3.cpp
+CMakeFiles/leetcode.dir/volume3.cpp.o: /Users/bytedance/Desktop/leetcode/volume3.cpp
 CMakeFiles/leetcode.dir/volume3.cpp.o: CMakeFiles/leetcode.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bytedance/Documents/leetcode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/leetcode.dir/volume3.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/leetcode.dir/volume3.cpp.o -MF CMakeFiles/leetcode.dir/volume3.cpp.o.d -o CMakeFiles/leetcode.dir/volume3.cpp.o -c /Users/bytedance/Documents/leetcode/volume3.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bytedance/Desktop/leetcode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/leetcode.dir/volume3.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/leetcode.dir/volume3.cpp.o -MF CMakeFiles/leetcode.dir/volume3.cpp.o.d -o CMakeFiles/leetcode.dir/volume3.cpp.o -c /Users/bytedance/Desktop/leetcode/volume3.cpp
 
 CMakeFiles/leetcode.dir/volume3.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/leetcode.dir/volume3.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/bytedance/Documents/leetcode/volume3.cpp > CMakeFiles/leetcode.dir/volume3.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/bytedance/Desktop/leetcode/volume3.cpp > CMakeFiles/leetcode.dir/volume3.cpp.i
 
 CMakeFiles/leetcode.dir/volume3.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/leetcode.dir/volume3.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/bytedance/Documents/leetcode/volume3.cpp -o CMakeFiles/leetcode.dir/volume3.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/bytedance/Desktop/leetcode/volume3.cpp -o CMakeFiles/leetcode.dir/volume3.cpp.s
 
 # Object files for target leetcode
 leetcode_OBJECTS = \
@@ -125,7 +125,7 @@ leetcode: CMakeFiles/leetcode.dir/volume2.cpp.o
 leetcode: CMakeFiles/leetcode.dir/volume3.cpp.o
 leetcode: CMakeFiles/leetcode.dir/build.make
 leetcode: CMakeFiles/leetcode.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/bytedance/Documents/leetcode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable leetcode"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/bytedance/Desktop/leetcode/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable leetcode"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/leetcode.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -137,6 +137,6 @@ CMakeFiles/leetcode.dir/clean:
 .PHONY : CMakeFiles/leetcode.dir/clean
 
 CMakeFiles/leetcode.dir/depend:
-	cd /Users/bytedance/Documents/leetcode/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/bytedance/Documents/leetcode /Users/bytedance/Documents/leetcode /Users/bytedance/Documents/leetcode/cmake-build-debug /Users/bytedance/Documents/leetcode/cmake-build-debug /Users/bytedance/Documents/leetcode/cmake-build-debug/CMakeFiles/leetcode.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/bytedance/Desktop/leetcode/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/bytedance/Desktop/leetcode /Users/bytedance/Desktop/leetcode /Users/bytedance/Desktop/leetcode/cmake-build-debug /Users/bytedance/Desktop/leetcode/cmake-build-debug /Users/bytedance/Desktop/leetcode/cmake-build-debug/CMakeFiles/leetcode.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/leetcode.dir/depend
 
