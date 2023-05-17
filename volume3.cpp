@@ -61,6 +61,59 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution1335 {
+public:
+    [[maybe_unused]] static int minDifficulty(vector<int> &jobDifficulty, int d) {
+        unsigned int n = jobDifficulty.size();
+        if (n < d) {
+            return -1;
+        }
+
+        vector<vector<int>> dp(d + 1, vector<int>(n + 1, INT_MAX / 2));
+        dp[0][0] = 0;
+
+        for (int i = 1; i <= d; ++i) {
+            for (int j = i; j <= n; ++j) {
+                int difficulty = 0;
+                for (int k = j; k >= i; k--) {
+                    difficulty = max(jobDifficulty[k - 1], difficulty);
+                    dp[i][j] = min(dp[i][j], dp[i - 1][k - 1] + difficulty);
+                }
+            }
+        }
+
+        return dp[d][n];
+    }
+};
+
+class [[maybe_unused]] Solution1335_1 {
+public:
+    [[maybe_unused]] static int minDifficulty(vector<int> &jobDifficulty, int d) {
+        unsigned int n = jobDifficulty.size();
+        if (n < d) {
+            return -1;
+        }
+
+        vector<int> dp(n + 1, INT_MAX / 2);
+        dp[0] = 0;
+
+        for (int i = 1; i <= d; ++i) {
+            for (int j = int(n); j >= i; --j) {
+                int difficulty = 0;
+                dp[j] = INT_MAX / 2;
+                for (int k = j; k >= i; k--) {
+                    difficulty = max(jobDifficulty[k - 1], difficulty);
+                    dp[j] = min(dp[j], dp[k - 1] + difficulty);
+                }
+            }
+        }
+
+        return dp[n];
+    }
+};
+
 [[maybe_unused]] int main() {
+    vector<int> test = {6, 5, 4, 3, 2, 1};
+    cout << Solution1335_1::minDifficulty(test, 2);
     return 0;
 }
