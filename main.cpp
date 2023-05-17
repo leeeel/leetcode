@@ -2,6 +2,17 @@
 
 using namespace std;
 
+struct ListNode {
+    [[maybe_unused]] int val;
+    ListNode *next;
+
+    ListNode() : val(0), next(nullptr) {}
+
+    [[maybe_unused]] explicit ListNode(int x) : val(x), next(nullptr) {}
+
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -14,15 +25,19 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-struct ListNode {
+class Node {
+public:
     [[maybe_unused]] int val;
-    ListNode *next;
+    Node *left;
+    Node *right;
+    [[maybe_unused]] Node *next;
 
-    ListNode() : val(0), next(nullptr) {}
+    explicit Node() : val(0), left(nullptr), right(nullptr), next(nullptr) {}
 
-    [[maybe_unused]] explicit ListNode(int x) : val(x), next(nullptr) {}
+    explicit Node(int _val) : val(_val), left(nullptr), right(nullptr), next(nullptr) {}
 
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
+    explicit Node(int _val, Node *_left, Node *_right, Node *_next)
+        : val(_val), left(_left), right(_right), next(_next) {}
 };
 
 class [[maybe_unused]] Solution1487 {
@@ -1153,21 +1168,6 @@ public:
 
         return res;
     }
-};
-
-class Node {
-public:
-    [[maybe_unused]] int val;
-    Node *left;
-    Node *right;
-    [[maybe_unused]] Node *next;
-
-    explicit Node() : val(0), left(nullptr), right(nullptr), next(nullptr) {}
-
-    explicit Node(int _val) : val(_val), left(nullptr), right(nullptr), next(nullptr) {}
-
-    explicit Node(int _val, Node *_left, Node *_right, Node *_next)
-        : val(_val), left(_left), right(_right), next(_next) {}
 };
 
 class [[maybe_unused]] Solution117 {
