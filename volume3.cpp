@@ -281,6 +281,112 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution713 {
+public:
+    [[maybe_unused]] static int numSubarrayProductLessThanK(vector<int> &nums, int k) {
+        int res = 0;
+        int left = 0, right = 0;
+        int mul = 1;
+        unsigned int n = nums.size();
+
+        while (right < n) {
+            mul *= nums[right];
+            while (left <= right && mul >= k) {
+                mul /= nums[left];
+                left++;
+            }
+            res += right - left + 1;
+            right++;
+        }
+
+        return res;
+    }
+};
+
+class [[maybe_unused]] Solution_209 {
+public:
+    [[maybe_unused]] static int minSubArrayLen(int target, vector<int> &nums) {
+        int left = 0, right = 0;
+        unsigned int n = nums.size();
+        int sum = 0;
+        int res = INT_MAX;
+
+        while (right < n) {
+            sum += nums[right];
+            while (sum >= target) {
+                res = min(res, right - left + 1);
+                sum -= nums[left++];
+            }
+            right++;
+        }
+
+        return res == INT_MAX ? 0 : res;
+    }
+};
+
+class [[maybe_unused]] Solution97 {
+public:
+    [[maybe_unused]] static bool isInterleave(string s1, string s2, string s3) {
+        unsigned int n1 = s1.size(), n2 = s2.size(), n3 = s3.size();
+        if (n1 + n2 != n3) {
+            return false;
+        }
+
+        vector<vector<bool>> dp(n1 + 1, vector<bool>(n2 + 1, false));
+        dp[0][0] = true;
+        for (int i = 1; i <= n1; ++i) {
+            dp[i][0] = dp[i - 1][0] && s1[i - 1] == s3[i - 1];
+        }
+        for (int j = 1; j <= n2; ++j) {
+            dp[0][j] = dp[0][j - 1] && s2[j - 1] == s3[j - 1];
+        }
+
+        for (int i = 1; i <= n1; ++i) {
+            for (int j = 1; j <= n2; ++j) {
+                bool cond1 = (dp[i - 1][j] && s1[i - 1] == s3[i + j - 1]);
+                bool cond2 = (dp[i][j - 1] && s2[j - 1] == s3[i + j - 1]);
+                dp[i][j] = cond1 || cond2;
+            }
+        }
+
+        return dp[n1][n2];
+    }
+};
+
+class [[maybe_unused]] Solution97_1 {
+private:
+    static bool helper(string s1, string s2, string s3) {
+        unsigned m = s1.size(), n = s2.size();
+        vector<bool> dp(n + 1, false);
+
+        dp[0] = true;
+        for (int j = 1; j <= n; ++j) {
+            dp[j] = dp[j - 1] && s2[j - 1] == s3[j - 1];
+        }
+
+        for (int i = 1; i <= m; ++i) {
+            dp[0] = dp[0] && s1[i - 1] == s3[i - 1];
+            for (int j = 1; j <= n; ++j) {
+                bool cond1 = (dp[j] && s1[i - 1] == s3[i + j - 1]);
+                bool cond2 = (dp[j - 1] && s2[j - 1] == s3[i + j - 1]);
+                dp[j] = cond1 || cond2;
+            }
+        }
+
+        return dp[n];
+    }
+
+public:
+    [[maybe_unused]] static bool isInterleave(string s1, string s2, string s3) {
+        unsigned int n1 = s1.size(), n2 = s2.size(), n3 = s3.size();
+        if (n1 + n2 != n3) {
+            return false;
+        }
+
+        return n1 >= n2 ? helper(s1, s2, s3) : helper(s2, s1, s3);
+    }
+};
+
 [[maybe_unused]] int main() {
     return 0;
 }
