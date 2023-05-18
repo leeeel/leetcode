@@ -355,7 +355,7 @@ public:
 
 class [[maybe_unused]] Solution97_1 {
 private:
-    static bool helper(string s1, string s2, string s3) {
+    static bool helper(string &s1, string &s2, string &s3) {
         unsigned m = s1.size(), n = s2.size();
         vector<bool> dp(n + 1, false);
 
