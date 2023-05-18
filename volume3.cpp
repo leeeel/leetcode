@@ -112,7 +112,7 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution {
+class [[maybe_unused]] Solution1458 {
 public:
     [[maybe_unused]] static int maxDotProduct(vector<int> &nums1, vector<int> &nums2) {
         unsigned m = nums1.size(), n = nums2.size();
@@ -137,6 +137,42 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution_2477 {
+private:
+    long long res = 0;
+
+    int dfs(int prevIdx, int curIdx, vector<vector<int>> &graph, int &seats) {
+        int cnt = 1;
+
+        for (auto nextIdx: graph[curIdx]) {
+            if (nextIdx != prevIdx) {
+                cnt += dfs(curIdx, nextIdx, graph, seats);
+            }
+        }
+
+        if (curIdx > 0) {
+            res += int(ceil(cnt * 1.0 / seats));
+        }
+
+        return cnt;
+    }
+
+public:
+    [[maybe_unused]] long long minimumFuelCost(vector<vector<int>> &roads, int seats) {
+        unsigned int n = roads.size();
+
+        vector<vector<int>> graph(n + 1);
+        for (auto &road: roads) {
+            graph[road[0]].emplace_back(road[1]);
+            graph[road[1]].emplace_back(road[0]);
+        }
+
+        dfs(-1, 0, graph, seats);
+
+        return res;
+    }
+};
+
 [[maybe_unused]] int main() {
-    return -1;
+    return 0;
 }
