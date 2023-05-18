@@ -326,7 +326,7 @@ public:
 
 class [[maybe_unused]] Solution97 {
 public:
-    [[maybe_unused]] static bool isInterleave(string s1, string s2, string s3) {
+    [[maybe_unused]] static bool isInterleave(string &s1, string &s2, string &s3) {
         unsigned int n1 = s1.size(), n2 = s2.size(), n3 = s3.size();
         if (n1 + n2 != n3) {
             return false;
@@ -377,7 +377,7 @@ private:
     }
 
 public:
-    [[maybe_unused]] static bool isInterleave(string s1, string s2, string s3) {
+    [[maybe_unused]] static bool isInterleave(string &s1, string &s2, string &s3) {
         unsigned int n1 = s1.size(), n2 = s2.size(), n3 = s3.size();
         if (n1 + n2 != n3) {
             return false;
