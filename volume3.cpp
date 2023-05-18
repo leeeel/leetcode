@@ -138,5 +138,5 @@ public:
 };
 
 [[maybe_unused]] int main() {
-    return 0;
+    return -1;
 }
