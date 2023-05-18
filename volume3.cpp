@@ -137,6 +137,37 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution1458_1 {
+private:
+    static int helper(vector<int> &nums1, vector<int> &nums2) {
+        unsigned m = nums1.size(), n = nums2.size();
+        vector<int> dp(n);
+        vector<int> memo(n);
+
+        dp[0] = nums1[0] * nums2[0];
+        for (int i = 1; i < n; ++i) {
+            dp[i] = max(dp[i - 1], nums1[0] * nums2[i]);
+        }
+        memo = dp;
+
+        for (int i = 1; i < m; i++) {
+            dp[0] = max(dp[0], nums1[i] * nums2[0]);
+            for (int j = 1; j < n; j++) {
+                int num = nums1[i] * nums2[j];
+                dp[j] = max({dp[j], dp[j - 1], memo[j - 1] + num, num});
+            }
+            memo = dp;
+        }
+
+        return dp[n - 1];
+    }
+
+public:
+    [[maybe_unused]] static int maxDotProduct(vector<int> &nums1, vector<int> &nums2) {
+        return nums1.size() >= nums2.size() ? helper(nums1, nums2) : helper(nums2, nums1);
+    }
+};
+
 class [[maybe_unused]] Solution_2477 {
 private:
     long long res = 0;
