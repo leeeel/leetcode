@@ -387,6 +387,90 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution1049 {
+public:
+    [[maybe_unused]] static int lastStoneWeightII(vector<int> &stones) {
+        int sum = accumulate(stones.begin(), stones.end(), 0);
+        int target = sum / 2;
+        unsigned int n = stones.size();
+        vector<vector<bool>> dp(n + 1, vector<bool>(target + 1, false));
+
+        dp[0][0] = true;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j <= target; ++j) {
+                if (j < stones[i - 1]) {
+                    dp[i][j] = dp[i - 1][j];
+                } else {
+                    dp[i][j] = dp[i - 1][j] || dp[i - 1][j - stones[i - 1]];
+                }
+            }
+        }
+        for (int j = target; j >= 0; --j) {
+            if (dp[n][j]) {
+                target = j;
+                break;
+            }
+        }
+
+        return sum - 2 * target;
+    }
+};
+
+class [[maybe_unused]] Solution1049_1 {
+public:
+    [[maybe_unused]] static int lastStoneWeightII(vector<int> &stones) {
+        int sum = accumulate(stones.begin(), stones.end(), 0);
+        int target = sum / 2;
+        unsigned int n = stones.size();
+        vector<bool> dp(target + 1, false);
+
+        dp[0] = true;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = target; j >= 0; --j) {
+                if (j >= stones[i - 1]) {
+                    dp[j] = dp[j] || dp[j - stones[i - 1]];
+                }
+            }
+        }
+        for (int j = target; j >= 0; --j) {
+            if (dp[j]) {
+                target = j;
+                break;
+            }
+        }
+
+        return sum - 2 * target;
+    }
+};
+
+class [[maybe_unused]] Solution1248 {
+public:
+    [[maybe_unused]] static int numberOfSubarrays(vector<int> &nums, int k) {
+        int right = 0, left = 0, flag = 0;
+        unsigned int n = nums.size();
+        int res = 0;
+        int cnt = 0;
+
+        while (right < n) {
+            cnt += nums[right++] & 1;
+
+            while (left <= right && cnt > k) {
+                cnt -= nums[left++] & 1;
+                flag = left;
+            }
+            while (flag <= right && !(nums[flag] & 1)) {
+                flag++;
+            }
+
+            if (cnt == k) {
+                res += flag - left + 1;
+            }
+        }
+
+        return res;
+    }
+};
+
 [[maybe_unused]] int main() {
     return 0;
 }
