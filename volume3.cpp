@@ -471,6 +471,49 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution718 {
+public:
+    [[maybe_unused]] static int findLength(vector<int> &nums1, vector<int> &nums2) {
+        unsigned int m = nums1.size(), n = nums2.size();
+        vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
+        int res = 0;
+
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (nums1[i - 1] == nums2[j - 1]) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                }
+                res = max(res, dp[i][j]);
+            }
+        }
+
+        return res;
+    }
+};
+
+class [[maybe_unused]] Solution {
+private:
+    static int helper(vector<int> &nums1, vector<int> &nums2) {
+        int m = int(nums1.size()), n = int(nums2.size());
+        vector<int> dp(n + 1, 0);
+        int res = 0;
+
+        for (int i = 1; i <= m; ++i) {
+            for (int j = n; j >= 1; --j) {
+                dp[j] = nums1[i - 1] == nums2[j - 1] ? dp[j - 1] + 1 : 0;
+                res = max(res, dp[j]);
+            }
+        }
+
+        return res;
+    }
+
+public:
+    [[maybe_unused]] static int findLength(vector<int> &nums1, vector<int> &nums2) {
+        return nums1.size() >= nums2.size() ? helper(nums1, nums2) : helper(nums2, nums1);
+    }
+};
+
 [[maybe_unused]] int main() {
     return 0;
 }
