@@ -491,7 +491,7 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution {
+class [[maybe_unused]] Solution718_1 {
 private:
     static int helper(vector<int> &nums1, vector<int> &nums2) {
         int m = int(nums1.size()), n = int(nums2.size());
@@ -513,7 +513,3 @@ public:
         return nums1.size() >= nums2.size() ? helper(nums1, nums2) : helper(nums2, nums1);
     }
 };
-
-[[maybe_unused]] int main() {
-    return 0;
-}
