@@ -36,6 +36,44 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution1373 {
+private:
+    struct subTree {
+        int maxVal;
+        int minVal;
+        int sumVal;
+        bool isBST;
+
+        explicit subTree(int maxVal, int minVal, int sumVal, bool isBST) : maxVal(maxVal), minVal(minVal), sumVal(sumVal), isBST(isBST) {}
+    };
+
+    int res;
+
+    subTree dfs(TreeNode *root) {
+        if (root == nullptr) {
+            return subTree(INT_MIN, INT_MAX, 0, true);
+        }
+
+        auto leftSubTree = dfs(root->left);
+        auto rightSubTree = dfs(root->right);
+
+        if (leftSubTree.isBST && rightSubTree.isBST && leftSubTree.maxVal < root->val && rightSubTree.minVal > root->val) {
+            int sum = root->val + leftSubTree.sumVal + rightSubTree.sumVal;
+            res = max(res, sum);
+            return subTree(max(rightSubTree.maxVal, root->val), min(leftSubTree.minVal, root->val), sum, true);
+        } else {
+            return subTree(0, 0, 0, false);
+        }
+    }
+
+public:
+    [[maybe_unused]] int maxSumBST(TreeNode *root) {
+        res = 0;
+        dfs(root);
+
+        return res;
+    }
+};
 
 [[maybe_unused]] int main() {
     return 0;
