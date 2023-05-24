@@ -197,6 +197,41 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution {
+private:
+    double dfs(int index, vector<vector<int>> &graph, vector<bool> &visited, int t, int target) {
+        unsigned int size = index == 1 ? graph[index].size() : graph[index].size() - 1;
+        if (t == 0 || size == 0) {
+            return index == target ? 1.0 : 0;
+        }
+
+        double res = 0;
+        int newTime = --t;
+        visited[index] = true;
+
+        for (auto node: graph[index]) {
+            if(!visited[node]){
+                res += dfs(node, graph, visited, newTime, target);
+            }
+        }
+
+        return res / size;
+    }
+
+public:
+    [[maybe_unused]]  double frogPosition(int n, vector<vector<int>> &edges, int t, int target) {
+        vector<vector<int>> graph(n + 1);
+        vector<bool> visited(n + 1, false);
+
+        for (auto &edge: edges) {
+            graph[edge[0]].emplace_back(edge[1]);
+            graph[edge[1]].emplace_back(edge[0]);
+        }
+
+        return dfs(1, graph, visited, t, target);
+    }
+};
+
 [[maybe_unused]] int main() {
     return 0;
 }
