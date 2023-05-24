@@ -232,6 +232,35 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution133 {
+public:
+    [[maybe_unused]] static GraphNode *cloneGraph(GraphNode *node) {
+        if (node == nullptr) {
+            return nullptr;
+        }
+
+        queue<GraphNode *> q;
+        q.push(node);
+        unordered_map<GraphNode *, GraphNode *> visited;
+        visited[node] = new GraphNode(node->val);
+
+        while (!q.empty()) {
+            auto temp = q.front();
+            q.pop();
+            for (auto &neighbor: temp->neighbors) {
+                if (visited.find(neighbor) == visited.end()) {
+                    visited[neighbor] = new GraphNode(neighbor->val);
+                    q.emplace(neighbor);
+                }
+
+                visited[temp]->neighbors.emplace_back(visited[neighbor]);
+            }
+        }
+
+        return visited[node];
+    }
+};
+
 [[maybe_unused]] int main() {
     return 0;
 }
