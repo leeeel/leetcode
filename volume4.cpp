@@ -274,12 +274,131 @@ public:
         int i = 1;
         int res = 0;
         for (auto node = this->head; node != nullptr; node = node->next, i++) {
-//            if (rand() % i == 0) {
-                res = node->val;
-//            }
+            //            if (rand() % i == 0) {
+            res = node->val;
+            //            }
         }
 
         return res;
+    }
+};
+
+class [[maybe_unused]] Solution115 {
+public:
+    [[maybe_unused]] static int numDistinct(string s, string t) {
+        unsigned int m = s.size(), n = t.size();
+        if (m < n) {
+            return 0;
+        }
+
+        vector<vector<unsigned int>> dp(m + 1, vector<unsigned int>(n + 1, 0));
+        for (int i = 0; i <= m; ++i) {
+            dp[i][0] = 1;
+        }
+
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (s[i - 1] == t[j - 1]) {
+                    dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j];
+                } else {
+                    dp[i][j] = dp[i - 1][j];
+                }
+            }
+        }
+
+        return int(dp[m][n]);
+    }
+};
+
+class [[maybe_unused]] Solution115_1 {
+public:
+    [[maybe_unused]] static int numDistinct(string s, string t) {
+        unsigned int m = s.size(), n = t.size();
+        if (m < n) {
+            return 0;
+        }
+
+        vector<unsigned int> dp(n + 1, 0);
+        dp[0] = 1;
+
+        for (int i = 1; i <= m; ++i) {
+            for (int j = int(n); j >= 1; --j) {
+                if (s[i - 1] == t[j - 1]) {
+                    dp[j] += dp[j - 1];
+                }
+            }
+        }
+
+        return int(dp[n]);
+    }
+};
+
+class [[maybe_unused]] Solution1438 {
+public:
+    [[maybe_unused]] static int longestSubarray(vector<int> &nums, int limit) {
+        int res = 0;
+        int right = 0, left = 0;
+        unsigned int n = nums.size();
+        deque<int> maxQue, minQue;
+
+        while (right < n) {
+            while (!maxQue.empty() && maxQue.back() < nums[right]) {
+                maxQue.pop_back();
+            }
+            maxQue.push_back(nums[right]);
+            while (!minQue.empty() && minQue.back() > nums[right]) {
+                minQue.pop_back();
+            }
+            minQue.push_back(nums[right]);
+
+            while (left <= right && maxQue.front() - minQue.front() > limit) {
+                if (maxQue.front() == nums[left]) {
+                    maxQue.pop_front();
+                }
+                if (minQue.front() == nums[left]) {
+                    minQue.pop_front();
+                }
+
+                left++;
+            }
+
+            res = max(res, right - left + 1);
+            right++;
+        }
+
+        return res;
+    }
+};
+
+class [[maybe_unused]] NumMatrix304 {
+private:
+    vector<vector<int>> sums;
+
+public:
+    [[maybe_unused]] explicit NumMatrix304(vector<vector<int>> &matrix) {
+        unsigned int m = matrix.size();
+        unsigned int n = matrix[0].size();
+        sums = vector<vector<int>>(m + 1, vector<int>(n + 1, 0));
+
+        sums[0][0] = matrix[0][0];
+        for (int j = 1; j < n; ++j) {
+            sums[0][j] = sums[0][j - 1] + matrix[0][j];
+        }
+        for (int i = 1; i < m; ++i) {
+            sums[i][0] = sums[i - 1][0] + matrix[i][0];
+            for (int j = 1; j < n; ++j) {
+                sums[i][j] = sums[i - 1][j] + sums[i][j - 1] - sums[i - 1][j - 1] + matrix[i][j];
+            }
+        }
+    }
+
+    [[maybe_unused]] int sumRegion(int row1, int col1, int row2, int col2) {
+        int a = sums[row2][col2];
+        int b = row1 == 0 || col1 == 0 ? 0 : sums[row1 - 1][col1 - 1];
+        int c = row1 == 0 ? 0 : sums[row1 - 1][col2];
+        int d = col1 == 0 ? 0 : sums[row2][col1 - 1];
+
+        return a + b - c - d;
     }
 };
 
