@@ -197,7 +197,7 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution {
+class [[maybe_unused]] Solution1377 {
 private:
     double dfs(int index, vector<vector<int>> &graph, vector<bool> &visited, int t, int target) {
         unsigned int size = index == 1 ? graph[index].size() : graph[index].size() - 1;
@@ -210,7 +210,7 @@ private:
         visited[index] = true;
 
         for (auto node: graph[index]) {
-            if(!visited[node]){
+            if (!visited[node]) {
                 res += dfs(node, graph, visited, newTime, target);
             }
         }
@@ -219,7 +219,7 @@ private:
     }
 
 public:
-    [[maybe_unused]]  double frogPosition(int n, vector<vector<int>> &edges, int t, int target) {
+    [[maybe_unused]] double frogPosition(int n, vector<vector<int>> &edges, int t, int target) {
         vector<vector<int>> graph(n + 1);
         vector<bool> visited(n + 1, false);
 
@@ -258,6 +258,28 @@ public:
         }
 
         return visited[node];
+    }
+};
+
+class [[maybe_unused]] Solution382 {
+private:
+    ListNode *head = nullptr;
+
+public:
+    [[maybe_unused]] explicit Solution382(ListNode *node) {
+        this->head = node;
+    }
+
+    [[maybe_unused]] int getRandom() {
+        int i = 1;
+        int res = 0;
+        for (auto node = this->head; node != nullptr; node = node->next, i++) {
+//            if (rand() % i == 0) {
+                res = node->val;
+//            }
+        }
+
+        return res;
     }
 };
 
