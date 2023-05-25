@@ -426,7 +426,7 @@ public:
 
 class [[maybe_unused]] Solution1314 {
 public:
-    [[maybe_unused]] vector<vector<int>> matrixBlockSum(vector<vector<int>> &mat, int k) {
+    [[maybe_unused]] static vector<vector<int>> matrixBlockSum(vector<vector<int>> &mat, int k) {
         unsigned int m = mat.size();
         unsigned int n = mat[0].size();
         vector<vector<int>> sums = vector<vector<int>>(m + 1, vector<int>(n + 1, 0));
