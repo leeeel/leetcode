@@ -378,7 +378,7 @@ public:
     [[maybe_unused]] explicit NumMatrix304(vector<vector<int>> &matrix) {
         unsigned int m = matrix.size();
         unsigned int n = matrix[0].size();
-        sums = vector<vector<int>>(m + 1, vector<int>(n + 1, 0));
+        sums = vector<vector<int>>(m, vector<int>(n, 0));
 
         sums[0][0] = matrix[0][0];
         for (int j = 1; j < n; ++j) {
@@ -399,6 +399,56 @@ public:
         int d = col1 == 0 ? 0 : sums[row2][col1 - 1];
 
         return a + b - c - d;
+    }
+};
+
+class [[maybe_unused]] NumMatrix304_1 {
+private:
+    vector<vector<int>> sums;
+
+public:
+    [[maybe_unused]] explicit NumMatrix304_1(vector<vector<int>> &matrix) {
+        unsigned int m = matrix.size();
+        unsigned int n = matrix[0].size();
+        sums = vector<vector<int>>(m + 1, vector<int>(n + 1, 0));
+
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                sums[i + 1][j + 1] = sums[i][j + 1] + sums[i + 1][j] - sums[i][j] + matrix[i][j];
+            }
+        }
+    }
+
+    [[maybe_unused]] int sumRegion(int row1, int col1, int row2, int col2) {
+        return sums[row2 + 1][col2 + 1] + sums[row1][col1] - sums[row1][col2 + 1] - sums[row2 + 1][col1];
+    }
+};
+
+class [[maybe_unused]] Solution1314 {
+public:
+    [[maybe_unused]] vector<vector<int>> matrixBlockSum(vector<vector<int>> &mat, int k) {
+        unsigned int m = mat.size();
+        unsigned int n = mat[0].size();
+        vector<vector<int>> sums = vector<vector<int>>(m + 1, vector<int>(n + 1, 0));
+
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                sums[i + 1][j + 1] = sums[i][j + 1] + sums[i + 1][j] - sums[i][j] + mat[i][j];
+            }
+        }
+
+        vector<vector<int>> res(m, vector<int>(n, 0));
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int row1 = max(0, i - k);
+                int col1 = max(0, j - k);
+                int row2 = min(int(m) - 1, i + k);
+                int col2 = min(int(n) - 1, j + k);
+                res[i][j] = sums[row2 + 1][col2 + 1] + sums[row1][col1] - sums[row1][col2 + 1] - sums[row2 + 1][col1];
+            }
+        }
+
+        return res;
     }
 };
 
