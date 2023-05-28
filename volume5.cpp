@@ -149,7 +149,5 @@ public:
 };
 
 [[maybe_unused]] int main() {
-    vector<vector<int>> test = {{1, 10, 10}, {1, 4, 5}, {2, 3, 6}};
-    cout << Solution1439::kthSmallest(test, 7);
     return 0;
 }
