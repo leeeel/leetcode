@@ -7,7 +7,10 @@ class [[maybe_unused]] Solution1162 {
 public:
     [[maybe_unused]] static int maxDistance(vector<vector<int>> &grid) {
         unsigned int n = grid.size();
-        const vector<vector<int>> dirs = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
+        const vector<vector<int>> dirs = {{0,  1},
+                                          {0,  -1},
+                                          {-1, 0},
+                                          {1,  0}};
         queue<pair<int, int>> q;
         int res = -1;
 
@@ -171,7 +174,7 @@ public:
     [[maybe_unused]] static int triangleNumber(vector<int> &nums) {
         int res = 0;
         unsigned int n = nums.size();
-        sort(nums.begin(),nums.end());
+        sort(nums.begin(), nums.end());
 
         for (int i = 0; i < n; ++i) {
             for (int k = i + 1, j = i + 2; j < n; ++j) {
@@ -184,6 +187,40 @@ public:
         return res;
     }
 };
+
+class [[maybe_unused]] Solution567 {
+public:
+    [[maybe_unused]] static bool checkInclusion(string &s1, string s2) {
+        unsigned int m = s1.size(), n = s2.size();
+        if (m > n) {
+            return false;
+        }
+
+        vector<int> cnt(26, 0);
+        for (auto &ch: s1) {
+            cnt[ch - 'a']++;
+        }
+
+        int left = 0, right = 0;
+        while (right < n) {
+            int ch = s2[right] - 'a';
+            cnt[ch]--;
+
+            while (cnt[ch] < 0) {
+                cnt[s2[left++] - 'a']++;
+            }
+
+            if (right - left + 1 == m) {
+                return true;
+            }
+
+            right++;
+        }
+
+        return false;
+    }
+};
+
 
 [[maybe_unused]] int main() {
     vector<int> test = {7, 0, 0, 0};
