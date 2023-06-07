@@ -148,6 +148,45 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution974 {
+public:
+    [[maybe_unused]] static int subarraysDivByK(vector<int> &nums, int k) {
+        int res = 0;
+        int preSum = 0;
+        unordered_map<int, int> cnt = {{0, 1}};
+
+        for (auto &num: nums) {
+            preSum += num;
+            int key = (preSum % k + k) % k;
+            res += cnt[key];
+            cnt[key]++;
+        }
+
+        return res;
+    }
+};
+
+class [[maybe_unused]] Solution611 {
+public:
+    [[maybe_unused]] static int triangleNumber(vector<int> &nums) {
+        int res = 0;
+        unsigned int n = nums.size();
+        sort(nums.begin(),nums.end());
+
+        for (int i = 0; i < n; ++i) {
+            for (int k = i + 1, j = i + 2; j < n; ++j) {
+                while (k < j & nums[i] + nums[k] <= nums[j]) {
+                    k++;
+                }
+                res += j - k;
+            }
+        }
+        return res;
+    }
+};
+
 [[maybe_unused]] int main() {
+    vector<int> test = {7, 0, 0, 0};
+    Solution611::triangleNumber(test);
     return 0;
 }
