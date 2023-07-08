@@ -7,10 +7,10 @@ class [[maybe_unused]] Solution1162 {
 public:
     [[maybe_unused]] static int maxDistance(vector<vector<int>> &grid) {
         unsigned int n = grid.size();
-        const vector<vector<int>> dirs = {{0,  1},
-                                          {0,  -1},
+        const vector<vector<int>> dirs = {{0, 1},
+                                          {0, -1},
                                           {-1, 0},
-                                          {1,  0}};
+                                          {1, 0}};
         queue<pair<int, int>> q;
         int res = -1;
 
@@ -221,9 +221,69 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution1233 {
+private:
+    struct Trie {
+        Trie() : index(-1) {}
+
+        int index;
+        unordered_map<string, Trie *> next;
+    };
+
+public:
+    [[maybe_unused]] static vector<string> removeSubfolders(vector<string> &folder) {
+        vector<string> res;
+        Trie *root = new Trie();
+
+        auto split = [](string &str) -> vector<string> {
+            vector<string> res;
+            const char splitCh = '/';
+            string temp;
+
+            for (auto &ch: str) {
+                if (ch == splitCh) {
+                    res.push_back(std::move(temp));
+                    temp.clear();
+                } else {
+                    temp.push_back(ch);
+                }
+            }
+            res.push_back(std::move(temp));
+
+            return res;
+        };
+
+        function<void(Trie *)> dfs = [&](Trie *root) -> void {
+            if (root->index != -1) {
+                res.push_back(folder[root->index]);
+                return;
+            }
+
+            for (auto &node: root->next) {
+                dfs(node.second);
+            }
+        };
+
+        for (int i = 0; i < folder.size(); i++) {
+            vector<string> path = split(folder[i]);
+            Trie *cur = root;
+
+            for (auto &str: path) {
+                if (!cur->next.count(str)) {
+                    cur->next[str] = new Trie();
+                }
+                cur = cur->next[str];
+            }
+
+            cur->index = i;
+        }
+
+        dfs(root);
+
+        return res;
+    }
+};
 
 [[maybe_unused]] int main() {
-    vector<int> test = {7, 0, 0, 0};
-    Solution611::triangleNumber(test);
     return 0;
 }
