@@ -500,7 +500,6 @@ public:
 class [[maybe_unused]] Solution970 {
 public:
     [[maybe_unused]] static vector<int> powerfulIntegers(int x, int y, int bound) {
-        vector<int> res;
         unordered_set<int> tempSet;
         int a = 0, b = 0;
         int sum = 0;
