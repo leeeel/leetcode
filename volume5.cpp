@@ -284,6 +284,26 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution991 {
+public:
+    [[maybe_unused]] static int brokenCalc(int startValue, int target) {
+        int res = 0;
+
+        while (startValue < target) {
+            if (target % 2 == 0) {
+                target /= 2;
+                res++;
+            } else {
+                target += 1;
+                target /= 2;
+                res += 2;
+            }
+        }
+
+        return res + startValue - target;
+    }
+};
+
 [[maybe_unused]] int main() {
     return 0;
 }
