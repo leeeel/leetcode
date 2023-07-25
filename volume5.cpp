@@ -304,6 +304,34 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution393 {
+public:
+    [[maybe_unused]] static bool validUtf8(vector<int> &data) {
+        int bytesNum = 0;
+
+        for (auto const &elem: data) {
+            if (bytesNum == 0) {
+                if (elem >> 5 == 0b110) {
+                    bytesNum = 1;
+                } else if (elem >> 4 == 0b1110) {
+                    bytesNum = 2;
+                } else if (elem >> 3 == 0b11110) {
+                    bytesNum = 3;
+                } else if (elem >> 7) {
+                    return false;
+                }
+            } else {
+                if (elem >> 6 != 0b10) {
+                    return false;
+                }
+                bytesNum--;
+            }
+        }
+
+        return bytesNum == 0;
+    }
+};
+
 [[maybe_unused]] int main() {
     return 0;
 }
