@@ -332,6 +332,69 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution988 {
+private:
+    string res;
+
+    void dfs(TreeNode *root, string str) {
+        if (!root) {
+            return;
+        }
+
+        str.push_back(char(root->val + 'a'));
+
+        if (!root->left && !root->right) {
+            reverse(str.begin(), str.end());
+
+            if (res.empty() || res > str) {
+                res = str;
+            }
+
+            return;
+        }
+
+        dfs(root->left, str);
+        dfs(root->right, str);
+    }
+
+public:
+    [[maybe_unused]] string smallestFromLeaf(TreeNode *root) {
+        dfs(root, "");
+
+        return res;
+    }
+};
+
+class BSTIterator {
+private:
+    vector<int> traversalRes;
+    int index;
+
+    static void inorderTraversal(TreeNode *root, vector<int> &nums) {
+        if (!root) {
+            return;
+        }
+
+        inorderTraversal(root->left, nums);
+        nums.push_back(root->val);
+        inorderTraversal(root->right, nums);
+    }
+
+public:
+    explicit BSTIterator(TreeNode *root) {
+        index = 0;
+        inorderTraversal(root, traversalRes);
+    }
+
+    int next() {
+        return traversalRes[index++];
+    }
+
+    bool hasNext() {
+        return index < traversalRes.size();
+    }
+};
+
 [[maybe_unused]] int main() {
     return 0;
 }
