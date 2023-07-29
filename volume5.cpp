@@ -365,7 +365,7 @@ public:
     }
 };
 
-class BSTIterator {
+class [[maybe_unused]] BSTIterator173 {
 private:
     vector<int> traversalRes;
     int index;
@@ -381,46 +381,17 @@ private:
     }
 
 public:
-    explicit BSTIterator(TreeNode *root) {
+    [[maybe_unused]] explicit BSTIterator173(TreeNode *root) {
         index = 0;
         inorderTraversal(root, traversalRes);
     }
 
-    int next() {
+    [[maybe_unused]] int next() {
         return traversalRes[index++];
     }
 
-    bool hasNext() {
+    [[maybe_unused]] bool hasNext() {
         return index < traversalRes.size();
-    }
-};
-
-class Solution109 {
-private:
-    vector<int> traversalRes;
-
-    TreeNode *buildBST(int left, int right) {
-        if (left > right) {
-            return nullptr;
-        }
-
-        int mid = (left + right) >> 1;
-        auto *root = new TreeNode(traversalRes[mid]);
-
-        root->left = buildBST(left, mid - 1);
-        root->right = buildBST(mid + 1, right);
-
-        return root;
-    }
-
-public:
-    TreeNode *sortedListToBST(ListNode *head) {
-        while (head != nullptr) {
-            traversalRes.push_back(head->val);
-            head = head->next;
-        }
-
-        return buildBST(0, int(traversalRes.size() - 1));
     }
 };
 
@@ -486,6 +457,6 @@ public:
 };
 
 
-int main() {
+[[maybe_unused]] int main() {
     return 0;
 }
