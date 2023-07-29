@@ -456,7 +456,37 @@ public:
     }
 };
 
+class [[maybe_unused]] Solution173 {
+private:
+    static int getListLength(ListNode *head) {
+        int res = 0;
 
-[[maybe_unused]] int main() {
-    return 0;
-}
+        while (head != nullptr) {
+            res++;
+            head = head->next;
+        }
+
+        return res;
+    }
+
+    TreeNode *buildBST(ListNode *&head, int left, int right) {
+        if (left > right) {
+            return nullptr;
+        }
+
+        int mid = (left + right) >> 1;
+        auto *root = new TreeNode();
+
+        root->left = buildBST(head, left, mid - 1);
+        root->val = head->val;
+        head = head->next;
+        root->right = buildBST(head, mid + 1, right);
+
+        return root;
+    }
+
+public:
+    [[maybe_unused]] TreeNode *sortedListToBST(ListNode *head) {
+        return buildBST(head, 0, getListLength(head) - 1);
+    }
+};
