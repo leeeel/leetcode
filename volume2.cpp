@@ -461,13 +461,16 @@ public:
         for (int i = 0; i < 24; ++i) {
             int a = i / 10;
             int b = i % 10;
+
             if ((time[0] == '?' || time[0] == a + '0') && (time[1] == '?' || time[1] == b + '0')) {
                 hourCnt++;
             }
         }
+
         for (int j = 0; j < 60; ++j) {
             int a = j / 10;
             int b = j % 10;
+
             if ((time[3] == '?' || time[3] == a + '0') && (time[4] == '?' || time[4] == b + '0')) {
                 minCnt++;
             }
