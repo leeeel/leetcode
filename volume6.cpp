@@ -15,14 +15,15 @@ private:
         return true;
     }
 
-    void dfs(vector<vector<int>> &grid, vector<vector<bool>> &visited, int x, int y, int &mark, int &islandArea, unsigned int &n) {
+    int dfs(vector<vector<int>> &grid, vector<vector<bool>> &visited, int x, int y, int &tag) {
         if (visited[x][y] || grid[x][y] == 0) {
-            return;
+            return 0;
         }
 
-        visited[x][y] = true;
-        grid[x][y] = mark;
-        islandArea++;
+        unsigned int n = grid.size();
+        int res = 1;
+
+        visited[x][y] = true, grid[x][y] = tag;
 
         for (auto dir: dirs) {
             int newX = x + dir[0];
@@ -32,14 +33,16 @@ private:
                 continue;
             }
 
-            dfs(grid, visited, newX, newY, mark, islandArea, n);
+            res += dfs(grid, visited, newX, newY, tag);
         }
+
+        return res;
     }
 
 public:
     [[maybe_unused]] int largestIsland(vector<vector<int>> &grid) {
         unsigned int n = grid.size();
-        int mark = 2;
+        int tag = 2;
         int res = 0;
         bool noZero = true;
         vector<vector<bool>> visited = vector<vector<bool>>(n, vector<bool>(n, false));
@@ -53,9 +56,8 @@ public:
                 }
 
                 if (!visited[i][j] && grid[i][j] == 1) {
-                    int islandArea = 0;
-                    dfs(grid, visited, i, j, mark, islandArea, n);
-                    islandAreaMap[mark++] = islandArea;
+                    int islandArea = dfs(grid, visited, i, j, tag);
+                    islandAreaMap[tag++] = islandArea;
                 }
             }
         }
@@ -73,14 +75,18 @@ public:
                     for (auto dir: dirs) {
                         int newX = i + dir[0];
                         int newY = j + dir[1];
-                        int currMark = grid[newX][newY];
 
-                        if (!isValid(newX, newY, n) || countedIslandSet.count(currMark)) {
+                        if (!isValid(newX, newY, n)) {
                             continue;
                         }
 
-                        totalIslandArea += islandAreaMap[currMark];
-                        countedIslandSet.insert(currMark);
+                        int currTag = grid[newX][newY];
+                        if (countedIslandSet.count(currTag)) {
+                            continue;
+                        }
+
+                        totalIslandArea += islandAreaMap[currTag];
+                        countedIslandSet.insert(currTag);
                     }
                 }
 
