@@ -197,7 +197,48 @@ public:
     }
 };
 
-[[maybe_unused]] int main() {
+class [[maybe_unused]] Solution875 {
+public:
+    [[maybe_unused]] static bool stoneGame([[maybe_unused]] vector<int> &piles) {
+        return true;
+    }
+};
 
+class [[maybe_unused]] Solution785 {
+private:
+    static constexpr int RED = 1;
+    static constexpr int BLUE = 2;
+    static constexpr int UNCOLORED = 0;
+
+    bool dfs(vector<vector<int>> &graph, vector<int> &color, int node, int curNodeColor) {
+        unsigned int n = graph[node].size();
+        int nextNodeColor = curNodeColor == RED ? BLUE : RED;
+        color[node] = curNodeColor;
+
+        for (int i = 0; i < n; ++i) {
+            if (color[graph[node][i]] == UNCOLORED && !dfs(graph, color, graph[node][i], nextNodeColor) || color[graph[node][i]] == curNodeColor) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+public:
+    [[maybe_unused]] bool isBipartite(vector<vector<int>> &graph) {
+        unsigned int n = graph.size();
+        vector<int> color(n, UNCOLORED);
+
+        for (int i = 0; i < n; ++i) {
+            if (color[i] == UNCOLORED && !dfs(graph, color, i, RED)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+};
+
+[[maybe_unused]] int main() {
     return 0;
 }
