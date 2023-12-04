@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class [[maybe_unused]] Solution827 {
+class Solution827 {
 private:
     const vector<vector<int>> dirs = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
 
@@ -25,7 +25,7 @@ private:
 
         grid[x][y] = tag;
 
-        for (int i = 0; i < 4; i++) {   // Using auto for iteration will result in copying operations, which can slow down the program.
+        for (int i = 0; i < 4; i++) {// Using auto for iteration will result in copying operations, which can slow down the program.
             int newX = x + dirs[i][0];
             int newY = y + dirs[i][1];
 
@@ -40,7 +40,7 @@ private:
     }
 
 public:
-    [[maybe_unused]] int largestIsland(vector<vector<int>> &grid) {
+    int largestIsland(vector<vector<int>> &grid) {
         unsigned int n = grid.size();
         int tag = 2;
         int res = 0;
@@ -98,19 +98,19 @@ public:
     }
 };
 
-class [[maybe_unused]] DiningPhilosophers {
+class DiningPhilosophers {
 private:
     mutex lock[5];
 
 public:
     DiningPhilosophers() = default;
 
-    [[maybe_unused]] void wantsToEat(int philosopher,
-                                     const function<void()> &pickLeftFork,
-                                     const function<void()> &pickRightFork,
-                                     const function<void()> &eat,
-                                     const function<void()> &putLeftFork,
-                                     const function<void()> &putRightFork) {
+    void wantsToEat(int philosopher,
+                    const function<void()> &pickLeftFork,
+                    const function<void()> &pickRightFork,
+                    const function<void()> &eat,
+                    const function<void()> &putLeftFork,
+                    const function<void()> &putRightFork) {
         int leftChopstick = philosopher;
         int rightChopstick = (philosopher + 1) % 5;
 
@@ -134,7 +134,7 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution68 {
+class Solution68 {
 private:
     static string genBlankStr(int n) {
         string res;
@@ -154,7 +154,7 @@ private:
     }
 
 public:
-    [[maybe_unused]] static vector<string> fullJustify(vector<string> &words, int maxWidth) {
+    static vector<string> fullJustify(vector<string> &words, int maxWidth) {
         vector<string> res;
         int right = 0, n = int(words.size());
         int left;
@@ -197,14 +197,14 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution875 {
+class Solution875 {
 public:
-    [[maybe_unused]] static bool stoneGame([[maybe_unused]] vector<int> &piles) {
+    static bool stoneGame(vector<int> &piles) {
         return true;
     }
 };
 
-class [[maybe_unused]] Solution785 {
+class Solution785 {
 private:
     static constexpr int RED = 1;
     static constexpr int BLUE = 2;
@@ -225,7 +225,7 @@ private:
     }
 
 public:
-    [[maybe_unused]] bool isBipartite(vector<vector<int>> &graph) {
+    bool isBipartite(vector<vector<int>> &graph) {
         unsigned int n = graph.size();
         vector<int> color(n, UNCOLORED);
 
@@ -239,6 +239,6 @@ public:
     }
 };
 
-[[maybe_unused]] int main() {
+int main() {
     return 0;
 }

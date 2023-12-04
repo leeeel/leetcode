@@ -3,9 +3,9 @@
 
 using namespace std;
 
-class [[maybe_unused]] Solution1162 {
+class Solution1162 {
 public:
-    [[maybe_unused]] static int maxDistance(vector<vector<int>> &grid) {
+    static int maxDistance(vector<vector<int>> &grid) {
         unsigned int n = grid.size();
         const vector<vector<int>> dirs = {{0, 1},
                                           {0, -1},
@@ -52,9 +52,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution848 {
+class Solution848 {
 public:
-    [[maybe_unused]] static string shiftingLetters(string s, vector<int> &shifts) {
+    static string shiftingLetters(string s, vector<int> &shifts) {
         int n = int(shifts.size());
         for (int i = n - 1; i >= 1; --i) {
             shifts[i - 1] += shifts[i];
@@ -70,9 +70,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution137 {
+class Solution137 {
 public:
-    [[maybe_unused]] static int singleNumber(vector<int> &nums) {
+    static int singleNumber(vector<int> &nums) {
         int res = 0;
 
         for (int i = 0; i < 32; ++i) {
@@ -90,9 +90,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1123 {
+class Solution1123 {
 public:
-    [[maybe_unused]] static TreeNode *lcaDeepestLeaves(TreeNode *root) {
+    static TreeNode *lcaDeepestLeaves(TreeNode *root) {
         function<pair<TreeNode *, int>(TreeNode *, int)> dfs = [&](TreeNode *node, int depth) -> pair<TreeNode *, int> {
             if (node == nullptr) {
                 return {nullptr, depth};
@@ -116,9 +116,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1439 {
+class Solution1439 {
 public:
-    [[maybe_unused]] static int kthSmallest(vector<vector<int>> &mat, int k) {
+    static int kthSmallest(vector<vector<int>> &mat, int k) {
         unsigned int m = mat.size();
         priority_queue<int> pq;
         vector<int> sums = mat[0];
@@ -151,9 +151,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution974 {
+class Solution974 {
 public:
-    [[maybe_unused]] static int subarraysDivByK(vector<int> &nums, int k) {
+    static int subarraysDivByK(vector<int> &nums, int k) {
         int res = 0;
         int preSum = 0;
         unordered_map<int, int> cnt = {{0, 1}};
@@ -169,9 +169,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution611 {
+class Solution611 {
 public:
-    [[maybe_unused]] static int triangleNumber(vector<int> &nums) {
+    static int triangleNumber(vector<int> &nums) {
         int res = 0;
         unsigned int n = nums.size();
         sort(nums.begin(), nums.end());
@@ -188,9 +188,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution567 {
+class Solution567 {
 public:
-    [[maybe_unused]] static bool checkInclusion(string &s1, string s2) {
+    static bool checkInclusion(string &s1, string s2) {
         unsigned int m = s1.size(), n = s2.size();
         if (m > n) {
             return false;
@@ -221,7 +221,7 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1233 {
+class Solution1233 {
 private:
     struct Trie {
         Trie() : index(-1) {}
@@ -231,7 +231,7 @@ private:
     };
 
 public:
-    [[maybe_unused]] static vector<string> removeSubfolders(vector<string> &folder) {
+    static vector<string> removeSubfolders(vector<string> &folder) {
         vector<string> res;
         Trie *root = new Trie();
 
@@ -284,9 +284,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution991 {
+class Solution991 {
 public:
-    [[maybe_unused]] static int brokenCalc(int startValue, int target) {
+    static int brokenCalc(int startValue, int target) {
         int res = 0;
 
         while (startValue < target) {
@@ -304,9 +304,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution393 {
+class Solution393 {
 public:
-    [[maybe_unused]] static bool validUtf8(vector<int> &data) {
+    static bool validUtf8(vector<int> &data) {
         int bytesNum = 0;
 
         for (auto const &elem: data) {
@@ -332,7 +332,7 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution988 {
+class Solution988 {
 private:
     string res;
 
@@ -358,14 +358,14 @@ private:
     }
 
 public:
-    [[maybe_unused]] string smallestFromLeaf(TreeNode *root) {
+    string smallestFromLeaf(TreeNode *root) {
         dfs(root, "");
 
         return res;
     }
 };
 
-class [[maybe_unused]] BSTIterator173 {
+class BSTIterator173 {
 private:
     vector<int> traversalRes;
     int index;
@@ -381,23 +381,23 @@ private:
     }
 
 public:
-    [[maybe_unused]] explicit BSTIterator173(TreeNode *root) {
+    explicit BSTIterator173(TreeNode *root) {
         index = 0;
         inorderTraversal(root, traversalRes);
     }
 
-    [[maybe_unused]] int next() {
+    int next() {
         return traversalRes[index++];
     }
 
-    [[maybe_unused]] bool hasNext() {
+    bool hasNext() {
         return index < traversalRes.size();
     }
 };
 
-class [[maybe_unused]] Solution980 {
+class Solution980 {
 public:
-    [[maybe_unused]] static int uniquePathsIII(vector<vector<int>> &grid) {
+    static int uniquePathsIII(vector<vector<int>> &grid) {
         const vector<vector<int>> dirs = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
         unsigned int m = grid.size(), n = grid[0].size();
 
@@ -456,7 +456,7 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution173 {
+class Solution173 {
 private:
     static int getListLength(ListNode *head) {
         int res = 0;
@@ -486,7 +486,7 @@ private:
     }
 
 public:
-    [[maybe_unused]] TreeNode *sortedListToBST(ListNode *head) {
+    TreeNode *sortedListToBST(ListNode *head) {
         return buildBST(head, 0, getListLength(head) - 1);
     }
 };

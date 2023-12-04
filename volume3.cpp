@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class [[maybe_unused]] Solution679 {
+class Solution679 {
 private:
     constexpr static const int target = 24;
     constexpr static const double EPSILON = 1e-6;
@@ -50,7 +50,7 @@ private:
     }
 
 public:
-    [[maybe_unused]] static bool judgePoint24(vector<int> &cards) {
+    static bool judgePoint24(vector<int> &cards) {
         unsigned int n = cards.size();
         vector<double> nums(n);
         for (int i = 0; i < n; ++i) {
@@ -61,9 +61,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1335 {
+class Solution1335 {
 public:
-    [[maybe_unused]] static int minDifficulty(vector<int> &jobDifficulty, int d) {
+    static int minDifficulty(vector<int> &jobDifficulty, int d) {
         unsigned int n = jobDifficulty.size();
         if (n < d) {
             return -1;
@@ -86,9 +86,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1335_1 {
+class Solution1335_1 {
 public:
-    [[maybe_unused]] static int minDifficulty(vector<int> &jobDifficulty, int d) {
+    static int minDifficulty(vector<int> &jobDifficulty, int d) {
         unsigned int n = jobDifficulty.size();
         if (n < d) {
             return -1;
@@ -112,9 +112,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1458 {
+class Solution1458 {
 public:
-    [[maybe_unused]] static int maxDotProduct(vector<int> &nums1, vector<int> &nums2) {
+    static int maxDotProduct(vector<int> &nums1, vector<int> &nums2) {
         unsigned m = nums1.size(), n = nums2.size();
         vector<vector<int>> dp(m, vector<int>(n, INT_MIN));
 
@@ -137,7 +137,7 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1458_1 {
+class Solution1458_1 {
 private:
     static int helper(vector<int> &nums1, vector<int> &nums2) {
         unsigned m = nums1.size(), n = nums2.size();
@@ -163,12 +163,12 @@ private:
     }
 
 public:
-    [[maybe_unused]] static int maxDotProduct(vector<int> &nums1, vector<int> &nums2) {
+    static int maxDotProduct(vector<int> &nums1, vector<int> &nums2) {
         return nums1.size() >= nums2.size() ? helper(nums1, nums2) : helper(nums2, nums1);
     }
 };
 
-class [[maybe_unused]] Solution1458_2 {
+class Solution1458_2 {
 private:
     static int helper(vector<int> &nums1, vector<int> &nums2) {
         unsigned m = nums1.size(), n = nums2.size();
@@ -195,12 +195,12 @@ private:
     }
 
 public:
-    [[maybe_unused]] static int maxDotProduct(vector<int> &nums1, vector<int> &nums2) {
+    static int maxDotProduct(vector<int> &nums1, vector<int> &nums2) {
         return nums1.size() >= nums2.size() ? helper(nums1, nums2) : helper(nums2, nums1);
     }
 };
 
-class [[maybe_unused]] Solution_2477 {
+class Solution_2477 {
 private:
     long long res = 0;
 
@@ -221,7 +221,7 @@ private:
     }
 
 public:
-    [[maybe_unused]] long long minimumFuelCost(vector<vector<int>> &roads, int seats) {
+    long long minimumFuelCost(vector<vector<int>> &roads, int seats) {
         unsigned int n = roads.size();
 
         vector<vector<int>> graph(n + 1);
@@ -236,9 +236,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1312 {
+class Solution1312 {
 public:
-    [[maybe_unused]] static int minInsertions(string s) {
+    static int minInsertions(string s) {
         int n = int(s.size());
         vector<vector<int>> dp(n, vector<int>(n, 0));
 
@@ -256,9 +256,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1312_1 {
+class Solution1312_1 {
 public:
-    [[maybe_unused]] static int minInsertions(string s) {
+    static int minInsertions(string s) {
         int n = int(s.size());
         vector<int> dp(n, 0);
 
@@ -281,9 +281,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution713 {
+class Solution713 {
 public:
-    [[maybe_unused]] static int numSubarrayProductLessThanK(vector<int> &nums, int k) {
+    static int numSubarrayProductLessThanK(vector<int> &nums, int k) {
         int res = 0;
         int left = 0, right = 0;
         int mul = 1;
@@ -303,9 +303,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution_209 {
+class Solution_209 {
 public:
-    [[maybe_unused]] static int minSubArrayLen(int target, vector<int> &nums) {
+    static int minSubArrayLen(int target, vector<int> &nums) {
         int left = 0, right = 0;
         unsigned int n = nums.size();
         int sum = 0;
@@ -324,9 +324,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution97 {
+class Solution97 {
 public:
-    [[maybe_unused]] static bool isInterleave(string &s1, string &s2, string &s3) {
+    static bool isInterleave(string &s1, string &s2, string &s3) {
         unsigned int n1 = s1.size(), n2 = s2.size(), n3 = s3.size();
         if (n1 + n2 != n3) {
             return false;
@@ -353,7 +353,7 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution97_1 {
+class Solution97_1 {
 private:
     static bool helper(string &s1, string &s2, string &s3) {
         unsigned m = s1.size(), n = s2.size();
@@ -377,7 +377,7 @@ private:
     }
 
 public:
-    [[maybe_unused]] static bool isInterleave(string &s1, string &s2, string &s3) {
+    static bool isInterleave(string &s1, string &s2, string &s3) {
         unsigned int n1 = s1.size(), n2 = s2.size(), n3 = s3.size();
         if (n1 + n2 != n3) {
             return false;
@@ -387,9 +387,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1049 {
+class Solution1049 {
 public:
-    [[maybe_unused]] static int lastStoneWeightII(vector<int> &stones) {
+    static int lastStoneWeightII(vector<int> &stones) {
         int sum = accumulate(stones.begin(), stones.end(), 0);
         int target = sum / 2;
         unsigned int n = stones.size();
@@ -416,9 +416,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1049_1 {
+class Solution1049_1 {
 public:
-    [[maybe_unused]] static int lastStoneWeightII(vector<int> &stones) {
+    static int lastStoneWeightII(vector<int> &stones) {
         int sum = accumulate(stones.begin(), stones.end(), 0);
         int target = sum / 2;
         unsigned int n = stones.size();
@@ -443,9 +443,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1248 {
+class Solution1248 {
 public:
-    [[maybe_unused]] static int numberOfSubarrays(vector<int> &nums, int k) {
+    static int numberOfSubarrays(vector<int> &nums, int k) {
         int right = 0, left = 0, flag = 0;
         unsigned int n = nums.size();
         int res = 0;
@@ -471,9 +471,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution718 {
+class Solution718 {
 public:
-    [[maybe_unused]] static int findLength(vector<int> &nums1, vector<int> &nums2) {
+    static int findLength(vector<int> &nums1, vector<int> &nums2) {
         unsigned int m = nums1.size(), n = nums2.size();
         vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
         int res = 0;
@@ -491,7 +491,7 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution718_1 {
+class Solution718_1 {
 private:
     static int helper(vector<int> &nums1, vector<int> &nums2) {
         int m = int(nums1.size()), n = int(nums2.size());
@@ -509,7 +509,7 @@ private:
     }
 
 public:
-    [[maybe_unused]] static int findLength(vector<int> &nums1, vector<int> &nums2) {
+    static int findLength(vector<int> &nums1, vector<int> &nums2) {
         return nums1.size() >= nums2.size() ? helper(nums1, nums2) : helper(nums2, nums1);
     }
 };

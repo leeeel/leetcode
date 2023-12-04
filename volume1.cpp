@@ -3,13 +3,13 @@
 
 using namespace std;
 
-class [[maybe_unused]] Solution1487 {
+class Solution1487 {
 public:
     static string addSuffix(string str, int num) {
         return str.append("(" + to_string(num) + ")");
     }
 
-    [[maybe_unused]] static vector<string> getFolderNames(vector<string> &names) {
+    static vector<string> getFolderNames(vector<string> &names) {
         vector<string> res;
         unordered_map<string, int> mp;
 
@@ -33,9 +33,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1642 {
+class Solution1642 {
 public:
-    [[maybe_unused]] static int furthestBuilding(vector<int> &heights, int bricks, int ladders) {
+    static int furthestBuilding(vector<int> &heights, int bricks, int ladders) {
         unsigned int n = heights.size();
         priority_queue<int, vector<int>, greater<>> pq;
 
@@ -60,9 +60,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1010 {
+class Solution1010 {
 public:
-    [[maybe_unused]] static int numPairsDivisibleby60(vector<int> &time) {
+    static int numPairsDivisibleby60(vector<int> &time) {
         long int res = 0;
         unordered_map<int, int> mp;
 
@@ -84,9 +84,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution513 {
+class Solution513 {
 public:
-    [[maybe_unused]] static int findBottomLeftValue(TreeNode *root) {
+    static int findBottomLeftValue(TreeNode *root) {
         queue<TreeNode *> q;
         int res;
 
@@ -115,9 +115,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution165 {
+class Solution165 {
 public:
-    [[maybe_unused]] static int compareVersion(string version1, string version2) {
+    static int compareVersion(string version1, string version2) {
         int i = 0, j = 0;
         unsigned int m = version1.size(), n = version2.size();
 
@@ -144,9 +144,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1263 {
+class Solution1263 {
 public:
-    [[maybe_unused]] static int minPushBox(vector<vector<char>> &grid) {
+    static int minPushBox(vector<vector<char>> &grid) {
         int m = int(grid.size());
         int n = int(grid[0].size());
         int sx = 0, sy = 0;
@@ -227,9 +227,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution92 {
+class Solution92 {
 public:
-    [[maybe_unused]] static ListNode *reverseBetween(ListNode *head, int left, int right) {
+    static ListNode *reverseBetween(ListNode *head, int left, int right) {
         auto *dummy = new ListNode(0, head);
         auto *pre = dummy;
 
@@ -249,9 +249,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1015 {
+class Solution1015 {
 public:
-    [[maybe_unused]] static int smallestRepunitDivByK(int k) {
+    static int smallestRepunitDivByK(int k) {
         int res = 1;
         int num = 1;
 
@@ -266,9 +266,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1016 {
+class Solution1016 {
 public:
-    [[maybe_unused]] static bool queryString(string s, int n) {
+    static bool queryString(string s, int n) {
         unsigned int m = s.size();
         unordered_set<int> set;
 
@@ -291,9 +291,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution224 {
+class Solution224 {
 public:
-    [[maybe_unused]] static int calculate(string s) {
+    static int calculate(string s) {
         int res = 0, op = 1;
         stack<int> stk;
         stk.push(op);
@@ -326,9 +326,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1096 {
+class Solution1096 {
 public:
-    [[maybe_unused]] static vector<string> braceExpansionII(string expression) {
+    static vector<string> braceExpansionII(string expression) {
         stack<char> op;// '{', '+', '*'
         stack<set<string>> st;
         unsigned int n = expression.size();
@@ -392,9 +392,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution264 {
+class Solution264 {
 public:
-    [[maybe_unused]] static int nthUglyNumber(int n) {
+    static int nthUglyNumber(int n) {
         vector<int> dp(n + 1, 1);
         int p2 = 1, p3 = 1, p5 = 1;
         int num1, num2, num3;
@@ -419,9 +419,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1023 {
+class Solution1023 {
 public:
-    [[maybe_unused]] static vector<bool> camelMatch(vector<string> &queries, string pattern) {
+    static vector<bool> camelMatch(vector<string> &queries, string pattern) {
         unsigned int n = queries.size();
         unsigned int m = pattern.size();
 
@@ -449,9 +449,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1041 {
+class Solution1041 {
 public:
-    [[maybe_unused]] static bool isRobotBounded(const string &instructions) {
+    static bool isRobotBounded(const string &instructions) {
         int x = 0, y = 0, index = 0;
         int dx, dy;
 
@@ -476,9 +476,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1033 {
+class Solution1033 {
 public:
-    [[maybe_unused]] static vector<int> numMovesStones(int a, int b, int c) {
+    static vector<int> numMovesStones(int a, int b, int c) {
         vector<int> res(2, 0);
         int minNum = min({a, b, c});
         int maxNum = max({a, b, c});
@@ -497,9 +497,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution970 {
+class Solution970 {
 public:
-    [[maybe_unused]] static vector<int> powerfulIntegers(int x, int y, int bound) {
+    static vector<int> powerfulIntegers(int x, int y, int bound) {
         unordered_set<int> tempSet;
         int a = 0, b = 0;
         int sum = 0;
@@ -531,10 +531,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1376 {
+class Solution1376 {
 public:
-    [[maybe_unused]] static int
-    numOfMinutes([[maybe_unused]] int n, int headID, vector<int> &manager, vector<int> &informTime) {
+    static int numOfMinutes(int n, int headID, vector<int> &manager, vector<int> &informTime) {
         int res = 0;
 
         unordered_map<int, vector<int>> mp;
@@ -564,9 +563,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1003 {
+class Solution1003 {
 public:
-    [[maybe_unused]] static bool isValid(const string &s) {
+    static bool isValid(const string &s) {
         string st;
 
         for (auto ch: s) {
@@ -580,9 +579,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution2106 {
+class Solution2106 {
 public:
-    [[maybe_unused]] static int maxTotalFruits(vector<vector<int>> &fruits, int startPos, int k) {
+    static int maxTotalFruits(vector<vector<int>> &fruits, int startPos, int k) {
         int res = 0;
         int cnt = 0;
 
@@ -604,9 +603,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution692 {
+class Solution692 {
 public:
-    [[maybe_unused]] static vector<string> topKFrequent(vector<string> &words, int k) {
+    static vector<string> topKFrequent(vector<string> &words, int k) {
         vector<string> res(k);
         unordered_map<string, int> cnt;
 
@@ -635,9 +634,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution2432 {
+class Solution2432 {
 public:
-    [[maybe_unused]] static int hardestWorker([[maybe_unused]] int n, vector<vector<int>> &logs) {
+    static int hardestWorker(int n, vector<vector<int>> &logs) {
         int res = logs[0][0];
         int maxCost = logs[0][1];
 
@@ -654,9 +653,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1497 {
+class Solution1497 {
 public:
-    [[maybe_unused]] static bool canArrange(vector<int> &arr, int k) {
+    static bool canArrange(vector<int> &arr, int k) {
         unordered_map<int, int> mp;
         for (auto &num: arr) {
             mp[(num % k + k) % k]++;
@@ -671,9 +670,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1344 {
+class Solution1344 {
 public:
-    [[maybe_unused]] static double angleClock(int hour, int minutes) {
+    static double angleClock(int hour, int minutes) {
         double minuteAngle = minutes == 60 ? 0 : minutes * 6;
         double hourAngle = (hour == 12 ? 0 : hour * 30) + double(minutes) / 2.0;
         double res = abs(hourAngle - minuteAngle);
@@ -682,9 +681,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution199 {
+class Solution199 {
 public:
-    [[maybe_unused]] static vector<int> rightSideView(TreeNode *root) {
+    static vector<int> rightSideView(TreeNode *root) {
         vector<int> res;
         queue<TreeNode *> q;
 

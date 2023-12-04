@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class [[maybe_unused]] Solution992 {
+class Solution992 {
 private:
     static int helper(vector<int> &nums, int k) {
         int left = 0, right = 0;
@@ -31,12 +31,12 @@ private:
     }
 
 public:
-    [[maybe_unused]] static int subarraysWithKDistinct(vector<int> &nums, int k) {
+    static int subarraysWithKDistinct(vector<int> &nums, int k) {
         return helper(nums, k) - helper(nums, k - 1);
     }
 };
 
-class [[maybe_unused]] Solution1373 {
+class Solution1373 {
 private:
     struct subTree {
         int maxVal;
@@ -67,7 +67,7 @@ private:
     }
 
 public:
-    [[maybe_unused]] int maxSumBST(TreeNode *root) {
+    int maxSumBST(TreeNode *root) {
         res = 0;
         dfs(root);
 
@@ -75,7 +75,7 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution979 {
+class Solution979 {
 private:
     int res = 0;
 
@@ -92,14 +92,14 @@ private:
     }
 
 public:
-    [[maybe_unused]] int distributeCoins(TreeNode *root) {
+    int distributeCoins(TreeNode *root) {
         dfs(root);
 
         return res;
     }
 };
 
-class [[maybe_unused]] Solution968 {
+class Solution968 {
 private:
     int res = 0;
 
@@ -125,7 +125,7 @@ private:
     }
 
 public:
-    [[maybe_unused]] int minCameraCover(TreeNode *root) {
+    int minCameraCover(TreeNode *root) {
         if (dfs(root) == 0) {
             res++;
         }
@@ -134,9 +134,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution662 {
+class Solution662 {
 public:
-    [[maybe_unused]] static int widthOfBinaryTree(TreeNode *root) {
+    static int widthOfBinaryTree(TreeNode *root) {
         if (root == nullptr) {
             return 0;
         }
@@ -167,7 +167,7 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution90 {
+class Solution90 {
 private:
     vector<vector<int>> res;
     vector<int> subset;
@@ -188,7 +188,7 @@ private:
     }
 
 public:
-    [[maybe_unused]] vector<vector<int>> subsetsWithDup(vector<int> &nums) {
+    vector<vector<int>> subsetsWithDup(vector<int> &nums) {
         n = nums.size();
         sort(nums.begin(), nums.end());
         dfs(nums, 0);
@@ -197,7 +197,7 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1377 {
+class Solution1377 {
 private:
     double dfs(int index, vector<vector<int>> &graph, vector<bool> &visited, int t, int target) {
         unsigned int size = index == 1 ? graph[index].size() : graph[index].size() - 1;
@@ -219,7 +219,7 @@ private:
     }
 
 public:
-    [[maybe_unused]] double frogPosition(int n, vector<vector<int>> &edges, int t, int target) {
+    double frogPosition(int n, vector<vector<int>> &edges, int t, int target) {
         vector<vector<int>> graph(n + 1);
         vector<bool> visited(n + 1, false);
 
@@ -232,9 +232,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution133 {
+class Solution133 {
 public:
-    [[maybe_unused]] static GraphNode *cloneGraph(GraphNode *node) {
+    static GraphNode *cloneGraph(GraphNode *node) {
         if (node == nullptr) {
             return nullptr;
         }
@@ -261,16 +261,16 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution382 {
+class Solution382 {
 private:
     ListNode *head = nullptr;
 
 public:
-    [[maybe_unused]] explicit Solution382(ListNode *node) {
+    explicit Solution382(ListNode *node) {
         this->head = node;
     }
 
-    [[maybe_unused]] int getRandom() {
+    int getRandom() {
         int i = 1;
         int res = 0;
         for (auto node = this->head; node != nullptr; node = node->next, i++) {
@@ -283,9 +283,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution115 {
+class Solution115 {
 public:
-    [[maybe_unused]] static int numDistinct(string s, string t) {
+    static int numDistinct(string s, string t) {
         unsigned int m = s.size(), n = t.size();
         if (m < n) {
             return 0;
@@ -310,9 +310,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution115_1 {
+class Solution115_1 {
 public:
-    [[maybe_unused]] static int numDistinct(string s, string t) {
+    static int numDistinct(string s, string t) {
         unsigned int m = s.size(), n = t.size();
         if (m < n) {
             return 0;
@@ -333,9 +333,9 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution1438 {
+class Solution1438 {
 public:
-    [[maybe_unused]] static int longestSubarray(vector<int> &nums, int limit) {
+    static int longestSubarray(vector<int> &nums, int limit) {
         int res = 0;
         int right = 0, left = 0;
         unsigned int n = nums.size();
@@ -370,12 +370,12 @@ public:
     }
 };
 
-class [[maybe_unused]] NumMatrix304 {
+class NumMatrix304 {
 private:
     vector<vector<int>> sums;
 
 public:
-    [[maybe_unused]] explicit NumMatrix304(vector<vector<int>> &matrix) {
+    explicit NumMatrix304(vector<vector<int>> &matrix) {
         unsigned int m = matrix.size();
         unsigned int n = matrix[0].size();
         sums = vector<vector<int>>(m, vector<int>(n, 0));
@@ -392,7 +392,7 @@ public:
         }
     }
 
-    [[maybe_unused]] int sumRegion(int row1, int col1, int row2, int col2) {
+    int sumRegion(int row1, int col1, int row2, int col2) {
         int a = sums[row2][col2];
         int b = row1 == 0 || col1 == 0 ? 0 : sums[row1 - 1][col1 - 1];
         int c = row1 == 0 ? 0 : sums[row1 - 1][col2];
@@ -402,12 +402,12 @@ public:
     }
 };
 
-class [[maybe_unused]] NumMatrix304_1 {
+class NumMatrix304_1 {
 private:
     vector<vector<int>> sums;
 
 public:
-    [[maybe_unused]] explicit NumMatrix304_1(vector<vector<int>> &matrix) {
+    explicit NumMatrix304_1(vector<vector<int>> &matrix) {
         unsigned int m = matrix.size();
         unsigned int n = matrix[0].size();
         sums = vector<vector<int>>(m + 1, vector<int>(n + 1, 0));
@@ -419,14 +419,14 @@ public:
         }
     }
 
-    [[maybe_unused]] int sumRegion(int row1, int col1, int row2, int col2) {
+    int sumRegion(int row1, int col1, int row2, int col2) {
         return sums[row2 + 1][col2 + 1] + sums[row1][col1] - sums[row1][col2 + 1] - sums[row2 + 1][col1];
     }
 };
 
-class [[maybe_unused]] Solution1314 {
+class Solution1314 {
 public:
-    [[maybe_unused]] static vector<vector<int>> matrixBlockSum(vector<vector<int>> &mat, int k) {
+    static vector<vector<int>> matrixBlockSum(vector<vector<int>> &mat, int k) {
         unsigned int m = mat.size();
         unsigned int n = mat[0].size();
         vector<vector<int>> sums = vector<vector<int>>(m + 1, vector<int>(n + 1, 0));
@@ -452,7 +452,7 @@ public:
     }
 };
 
-class [[maybe_unused]] Solution797 {
+class Solution797 {
 private:
     vector<vector<int>> res;
     vector<int> path;
@@ -473,7 +473,7 @@ private:
     }
 
 public:
-    [[maybe_unused]] vector<vector<int>> allPathsSourceTarget(vector<vector<int>> &graph) {
+    vector<vector<int>> allPathsSourceTarget(vector<vector<int>> &graph) {
         target = int(graph.size()) - 1;
         path.emplace_back(0);
         dfs(0, graph);
