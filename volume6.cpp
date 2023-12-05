@@ -298,6 +298,57 @@ public:
     }
 };
 
+class Solution1335 {
+public:
+    static int minDifficulty(vector<int> &jobDifficulty, int d) {
+        unsigned int n = jobDifficulty.size();
+        if (n < d) {
+            return -1;
+        }
+
+        vector<vector<int>> dp(d + 1, vector<int>(n + 1, INT_MAX / 2));
+        dp[0][0] = 0;
+
+        for (int i = 1; i <= d; ++i) {
+            for (int j = i; j <= n; ++j) {
+                int difficulty = 0;
+                for (int k = j; k >= i; k--) {
+                    difficulty = max(jobDifficulty[k - 1], difficulty);
+                    dp[i][j] = min(dp[i][j], dp[i - 1][k - 1] + difficulty);
+                }
+            }
+        }
+
+        return dp[d][n];
+    }
+};
+
+class Solution1335_1 {
+public:
+    static int minDifficulty(vector<int> &jobDifficulty, int d) {
+        unsigned int n = jobDifficulty.size();
+        if (n < d) {
+            return -1;
+        }
+
+        vector<int> dp(n + 1, INT_MAX / 2);
+        dp[0] = 0;
+
+        for (int i = 1; i <= d; ++i) {
+            for (int j = int(n); j >= i; --j) {
+                int difficulty = 0;
+                dp[j] = INT_MAX / 2;
+                for (int k = j; k >= i; k--) {
+                    difficulty = max(jobDifficulty[k - 1], difficulty);
+                    dp[j] = min(dp[j], dp[k - 1] + difficulty);
+                }
+            }
+        }
+
+        return dp[n];
+    }
+};
+
 int main() {
     return 0;
 }
