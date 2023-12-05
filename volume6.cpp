@@ -25,7 +25,8 @@ private:
 
         grid[x][y] = tag;
 
-        for (int i = 0; i < 4; i++) {// Using auto for iteration will result in copying operations, which can slow down the program.
+        // Using auto for iteration will result in copying operations, which can slow down the program.
+        for (int i = 0; i < 4; i++) {
             int newX = x + dirs[i][0];
             int newY = y + dirs[i][1];
 
