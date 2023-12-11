@@ -349,6 +349,41 @@ public:
     }
 };
 
+class Solution1335_2 {
+public:
+    static int minDifficulty(vector<int> &jobDifficulty, int d) {
+        unsigned int n = jobDifficulty.size();
+        if (n < d) {
+            return -1;
+        }
+
+        vector<vector<int>> dp(d + 1, vector<int>(n + 1, INT_MAX / 2));
+        dp[0][0] = 0;
+
+        for (int i = 1; i <= d; ++i) {
+            stack<pair<int, int>> st;
+
+            for (int j = i; j <= n; ++j) {
+                int minVal = dp[i - 1][j - 1];
+                while (!st.empty() && jobDifficulty[st.top().first - 1] < jobDifficulty[j - 1]) {
+                    minVal = min(st.top().second, minVal);
+                    st.pop();
+                }
+
+                if (st.empty()) {
+                    dp[i][j] = minVal + jobDifficulty[j - 1];
+                } else {
+                    dp[i][j] = min(dp[i][st.top().first], minVal + jobDifficulty[j - 1]);
+                }
+
+                st.emplace(j, minVal);
+            }
+        }
+
+        return dp[d][n];
+    }
+};
+
 int main() {
     return 0;
 }
