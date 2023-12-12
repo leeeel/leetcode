@@ -427,5 +427,6 @@ public:
 int main() {
     vector<int> num = {6, 5, 4, 3, 2, 1};
     Solution1335_3::minDifficulty(num, 2);
+
     return 0;
 }
