@@ -384,6 +384,46 @@ public:
     }
 };
 
+class Solution1335_3 {
+public:
+    static int minDifficulty(vector<int> &jobDifficulty, int d) {
+        unsigned int n = jobDifficulty.size();
+        if (n < d) {
+            return -1;
+        }
+
+        vector<int> dp(n + 1, INT_MAX / 2);
+        dp[0] = 0;
+
+        for (int i = 1; i <= d; ++i) {
+            stack<pair<int, int>> st;
+            vector<int> ndp(n + 1, INT_MAX / 2);
+
+            for (int j = i; j <= n; ++j) {
+                int minVal = dp[j - 1];
+                while (!st.empty() && jobDifficulty[st.top().first - 1] < jobDifficulty[j - 1]) {
+                    minVal = min(st.top().second, minVal);
+                    st.pop();
+                }
+
+                if (st.empty()) {
+                    ndp[j] = minVal + jobDifficulty[j - 1];
+                } else {
+                    ndp[j] = min(ndp[st.top().first], minVal + jobDifficulty[j - 1]);
+                }
+
+                st.emplace(j, minVal);
+            }
+
+            dp.swap(ndp);
+        }
+
+        return dp[n];
+    }
+};
+
 int main() {
+    vector<int> num = {6, 5, 4, 3, 2, 1};
+    Solution1335_3::minDifficulty(num, 2);
     return 0;
 }
