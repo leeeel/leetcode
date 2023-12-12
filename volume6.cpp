@@ -312,6 +312,7 @@ public:
         for (int i = 1; i <= d; ++i) {
             for (int j = i; j <= n; ++j) {
                 int difficulty = 0;
+
                 for (int k = j; k >= i; k--) {
                     difficulty = max(jobDifficulty[k - 1], difficulty);
                     dp[i][j] = min(dp[i][j], dp[i - 1][k - 1] + difficulty);
@@ -338,6 +339,7 @@ public:
             for (int j = int(n); j >= i; --j) {
                 int difficulty = 0;
                 dp[j] = INT_MAX / 2;
+
                 for (int k = j; k >= i; k--) {
                     difficulty = max(jobDifficulty[k - 1], difficulty);
                     dp[j] = min(dp[j], dp[k - 1] + difficulty);
@@ -365,11 +367,11 @@ public:
 
             for (int j = i; j <= n; ++j) {
                 int minVal = dp[i - 1][j - 1];
+
                 while (!st.empty() && jobDifficulty[st.top().first - 1] < jobDifficulty[j - 1]) {
                     minVal = min(st.top().second, minVal);
                     st.pop();
                 }
-
                 if (st.empty()) {
                     dp[i][j] = minVal + jobDifficulty[j - 1];
                 } else {
@@ -401,11 +403,11 @@ public:
 
             for (int j = i; j <= n; ++j) {
                 int minVal = dp[j - 1];
+
                 while (!st.empty() && jobDifficulty[st.top().first - 1] < jobDifficulty[j - 1]) {
                     minVal = min(st.top().second, minVal);
                     st.pop();
                 }
-
                 if (st.empty()) {
                     ndp[j] = minVal + jobDifficulty[j - 1];
                 } else {
