@@ -485,7 +485,7 @@ public:
     static int maxUncrossedLines(vector<int> &nums1, vector<int> &nums2) {
         unsigned int m = nums1.size();
         unsigned int n = nums2.size();
-        vector<vector<int>> dp(m + 1, vector(n + 1, 0));
+        vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
 
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
